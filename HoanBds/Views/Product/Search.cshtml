@@ -1,0 +1,52 @@
+﻿@using HoanBds.Models.Products;
+@using HoanBds.Utilities;
+@model List<ProductMongoDbModel>
+@{
+    string keyword = ViewBag.keyword;
+}
+<section class="section-category">
+    <div class="container">
+        <div class="list-product-category">
+
+            <div class="title-box">
+                <h3 class="name-tt">                        
+                        
+                            @Html.Raw(
+                                keyword.Length > 0 ? 
+                                "Kết quả theo từ khóa: <span class='text-lowercase'>'" + keyword + "'</span>"
+                                :
+                                "Danh sách sản phẩm được tìm thấy"
+                            )
+                </h3>
+            </div>
+
+            <div class="product-category">
+                <div class="list-product">
+                    @{
+                        foreach (var item in Model)
+                        {
+                            string link = @Html.GetStaticUrlProduct(item.name, item._id);
+                            <div class="item-product">
+                                <a href="@link">
+                                    <div class="thumb thumb-product">
+                                        <img src="@item.avatar" alt="@item.name" />
+                                    </div>
+                                    <div class="box-info">
+                                        <h3 class="name-product">@item.name</h3>
+                                        <div class="flex-price">
+                                            <div class="price-sale">@item.label_price</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-category product_history">@*wwwroot\js\header\main.js*@</section>
+
+
