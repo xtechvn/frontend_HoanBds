@@ -20,7 +20,8 @@ namespace HoanBds.Controllers.News.Service
         public NewsService(IConfiguration _configuration, RedisConn _redisService)
         {
             configuration = _configuration;
-            redisService = _redisService;            
+            redisService = _redisService;
+            article_es = new ArticleService(configuration["Elastic:Host"], _configuration);
         }
         /// <summary>
         /// Chi tiết bài viết
@@ -30,9 +31,9 @@ namespace HoanBds.Controllers.News.Service
         public async Task<ArticleModel?> getArticleDetailById(long article_id)
         {
             try
-            {               
+            {
                 int node_redis = Convert.ToInt32(configuration["Redis:Database:db_article"]);
-                var article_detail = new ArticleModel();                
+                var article_detail = new ArticleModel();
 
                 string cache_name = CacheType.ARTICLE_ID + article_id;
                 var j_data = await redisService.GetAsync(cache_name, node_redis);
@@ -60,7 +61,7 @@ namespace HoanBds.Controllers.News.Service
                 return null;
             }
         }
-      
+
         /// <summary>
         /// Lấy ra các tin mới nhất trang chủ dc set top của tất cả các chuyên mục
         /// </summary>
@@ -71,9 +72,9 @@ namespace HoanBds.Controllers.News.Service
         public async Task<ArticleViewModel?> getListNews(int category_id, int skip, int top)
         {
             try
-            {           
+            {
                 int node_redis = Convert.ToInt32(configuration["Redis:Database:db_article"]);
-                var _category_detail = new GroupProductModel();
+                /*                var _category_detail = new GroupProductModel();*/
                 var list_article = new List<CategoryArticleModel>();
                 int total_max_cache = 100; // số bản ghi tối đa để cache                    
 
@@ -133,7 +134,7 @@ namespace HoanBds.Controllers.News.Service
         public async Task<int> getTotalNews(int category_id)
         {
             try
-            {                  
+            {
                 // Lấy ra trong es
                 var total = await article_es.getTotalItemNewsByCategoryId(category_id);
                 return total;

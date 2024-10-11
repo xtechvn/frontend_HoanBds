@@ -12,11 +12,13 @@ namespace HoanBds.Service.ElasticSearch.News
         private readonly IConfiguration configuration;
         private static string _ElasticHost;
         private static ElasticClient elasticClient;
+        private string index;
         private ISearchResponse<CategoryArticleModel> search_response;
         public ArticleService(string Host, IConfiguration _configuration)
         {
             _ElasticHost = Host;
             configuration = _configuration;
+            index = configuration["Elastic:Index:SpGetArticle"];
         }
 
         /// <summary>
@@ -42,7 +44,7 @@ namespace HoanBds.Service.ElasticSearch.News
                 }
 
                 var query = elasticClient.Search<ArticleModel>(sd => sd
-                 .Index(configuration["DataBaseConfig:Elastic:Index:SpGetArticle"])  // Chỉ mục bạn muốn tìm kiếm
+                 .Index(configuration["Elastic:Index:SpGetArticle"])  // Chỉ mục bạn muốn tìm kiếm
                .Query(q => q
                    .Term(t => t.Field(f => f.id).Value(id))  // Tìm kiếm chính xác theo giá trị id (dạng int)
                ));
@@ -93,9 +95,9 @@ namespace HoanBds.Service.ElasticSearch.News
                     // Lấy ra toàn bộ các bài viết của các chuyên mục theo thời gian bài nào mới nhất lên đầu
                     search_response = elasticClient.Search<CategoryArticleModel>(s => s
                    .Size(top) // Lấy ra số lượng bản ghi (ví dụ 100)
-                   .Index(configuration["DataBaseConfig:Elastic:Index:SpGetArticle"])  // Chỉ mục bạn muốn tìm kiếm
+                   .Index(index)  // Chỉ mục bạn muốn tìm kiếm
                        .Sort(sort => sort
-                           .Descending(f => f.publish_date) // Sắp xếp giảm dần theo publishdate
+                           .Descending(f => f.PublishDate) // Sắp xếp giảm dần theo publishdate
                        )
                    );
                 }
@@ -103,21 +105,13 @@ namespace HoanBds.Service.ElasticSearch.News
                 {
                     search_response = elasticClient.Search<CategoryArticleModel>(s => s
                         .Size(top)
-                        .Index(configuration["DataBaseConfig:Elastic:Index:SpGetArticle"])  // Chỉ mục muốn tìm kiếm
-                        .Sort(sort => sort
-                            .Descending(f => f.publish_date)
-                        )
+                        .Index(index)  // Chỉ mục muốn tìm kiếm                    
                        .Query(q => q
-                            .Bool(b => b
-                                .Must(m => m
-                                    .Wildcard(w => w
-                                        .Field(f => f.list_category_id)
-                                        .Value("*" + category_id.ToString() + "*") // Tìm các chuỗi chứa ký tự liên quan
-                                    )
-                                )
-                            )
-                        )
-                    );
+                                   .QueryString(qs => qs
+                                   .Fields(new[] { "ListCategoryId" })
+                                   .Query("*" + category_id.ToString() + "*")
+                      )
+                    ));
                 }
 
                 if (search_response.IsValid)
@@ -135,7 +129,7 @@ namespace HoanBds.Service.ElasticSearch.News
             }
         }
 
-        public async Task <int> getTotalItemNewsByCategoryId(int category_id)
+        public async Task<int> getTotalItemNewsByCategoryId(int category_id)
         {
             try
             {

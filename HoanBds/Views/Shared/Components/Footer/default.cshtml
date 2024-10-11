@@ -1,74 +1,77 @@
 ﻿@using HoanBds.Utilities;
 @inject IConfiguration Configuration
-<footer class="footer">
+<div class="main-footer--bottom">
+    <div class="container scroltop-to-bottom">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg">
+                <div class="footer-col footer-block">
+                    <h4 class="footer-title">
+                        Giới thiệu
+                    </h4>
+                    <div class="footer-content">
+
+                        <p>
+                            Chúng tôi mong muốn trở thành nhà cung cấp dịch vụ xây dựng dân dụng giá
+                            trị gia tăng, hướng đến trở thành một mô hình chuẩn mực và tiên phong
+                            trong lĩnh vực xây dựng tại thị trường Việt Nam.
+                        </p>
+
+
+                        <div class="social-list">
+
+                            <a href="index.html" target="_blank"><i class="icofont-facebook"></i></a>
+
+
+                            <a href="index.html" target="_blank"><i class="icofont-google-plus"></i></a>
+
+
+                            <a href="index.html" target="_blank"><i class="icofont-twitter"></i></a>
+
+
+                            <a href="index.html" target="_blank"><i class="icofont-brand-youtube"></i></a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg">
+                <div class="footer-col footer-block">
+                    <h4 class="footer-title">
+                        Thông tin liên hệ
+                    </h4>
+                    <div class="footer-content toggle-footer">
+                        <ul>
+                            <li>
+                                <span>Địa chỉ:</span> Tầng 4, tòa nhà Flemington, số 182, đường Lê
+                                Đại Hành, phường 15, quận 11, Tp. Hồ Chí Minh.
+                            </li>
+                            <li><span>Điện thoại:</span> 1900.636.099</li>
+                            <li><span>Fax:</span> 1900.636.099</li>
+                            <li><span>Email:</span> hi@haravan.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+@*             @await Component.InvokeAsync("ArticleList", new { _zone_info = Html.GetStaticBlogNews("footer_news_zone_1", Configuration) })
+            @await Component.InvokeAsync("ArticleList", new { _zone_info = Html.GetStaticBlogNews("footer_news_zone_2", Configuration) }) *@
+
+        </div>
+
+    </div>
+</div>
+<div class="main-footer--copyright">
     <div class="container">
-        <div class="topfooter">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <h4 class="title">hỗ trợ khách hàng</h4>
-                    <div class="hotline">Hotline CSKH: 012 345 6789</div>
-                    <p class="time">(từ 8h30-17h30 Thứ 2 đến Thứ 6)</p>
-                </div>
-
-                @await Component.InvokeAsync("ArticleList", new {_zone_info = Html.GetStaticBlogNews("footer_news_zone_1", Configuration) })
-                @await Component.InvokeAsync("ArticleList", new {_zone_info = Html.GetStaticBlogNews("footer_news_zone_2", Configuration) })
-                
-
-                <div class="col-md-3 col-sm-6">
-                    <h4 class="title">hình thức thanh toán</h4>
-
-                    <ul class="payment">
-                        <li><img src="~/images/mastercard.png" alt="" /></li>
-                        <li><img src="~/images/jcb.png" alt="" /></li>
-                        <li><img src="~/images/visa.png" alt="" /></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="midfooter">
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="logo"><a href=""><img src="~/images/Logo_HoanBds.png" alt="" /></a></div>
-                    <p class="slogan">CÔNG TY TNHH HoanBds</p>
-
-                    <ul class="info">
-                        <li><a href="tel:0365809316"><i class="icon icon-hotline"></i>036 5809 316</a></li>
-                        <li>
-                            <a href="mailto:HoanBds.vn@gmail.com">
-                                <i class="icon icon-map"></i>HoanBds.vn@gmail.com
-                            </a>
-                        </li>
-                        <li>
-                            <i class="icon icon-mail"></i>D25-47, Khu D, Khu đô thị Geleximco, Lê Trọng Tấn, Dương
-                            Nội,
-                            Hà Đông, Hà Nội
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <ul class="social">
-                        <li><a href=""><img src="~/images/shoppe.png" alt="" /></a></li>
-                        <li><a href=""><img src="~/images/fb.png" alt="" /></a></li>
-                        <li><a href=""><img src="~/images/yt.png" alt="" /></a></li>
-                        <li><a href=""><img src="~/images/tiktok.png" alt="" /></a></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="main-footer--border">
+            <p>
+                Copyright © 2024 <a href="index.html"> NextCompany</a>. <a target="_blank" rel="noreferrer"
+                                                                           href="https://www.haravan.com/">Powered by Haravan</a>
+            </p>
         </div>
     </div>
-    <div class="bottomfooter">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p>
-                        Copyright © 2024 HoanBds. All Rights Reserved. <br />
-                        Design by XTech.vn
-                    </p>
-                </div>
-                <div class="col-md-6 text-md-right">
-                    <img src="~/images/logoSaleNoti.png" alt="" />
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+</div>
