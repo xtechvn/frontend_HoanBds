@@ -1,0 +1,25 @@
+﻿@using HoanBds.ViewModels;
+@using HoanBds.Utilities;
+
+@model ArticleViewModel
+
+@{
+    if (Model != null)
+    {
+        @foreach (var item in Model.obj_article_list)
+        {
+            string link = @Html.GetStaticUrlNews(item.Title, item.Id);
+            <div class="col-md-6 col-sm-6 col-xs-6 col-blog">
+                <div class="overlay-wraper latest-blog-dark-outer">
+                    <a href="@link" class="fade-box">
+                        <img src="~/images/p-sv-info_21bce.jpg" class="" />
+                    </a>
+                    <div class="latest-blog-dark">
+                        <div class="v-date "><span><b>Thứ Ba</b><br />10/09/2019</span></div>
+                        <h3 class="title"><a href="#">Căn hộ Flora Apartments</a></h3>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+}

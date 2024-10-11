@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Tin tức";    
+    ViewData["Title"] = "Tin tức";
 }
 @model ArticleDetailModel
 
@@ -14,18 +14,18 @@
                 <div class="flex-cat">
                     <span class="time">
                         <i class="icon icon-time"></i>
-                        @Model.publish_date.ToString("dd/MM/yyyy")
+                        @Model.PublishDate.ToString("dd/MM/yyyy")
                     </span>
                     <a href="" class="cat-tag">Đồ chơi</a>
                 </div>
-                <h1 class="title-news">@Html.Raw(Model.title)</h1>
+                <h1 class="title-news">@Html.Raw(Model.Title)</h1>
                 <div class="details">
-                      @Html.Raw(Model.body)
+                    @Html.Raw(Model.body)
                 </div>
                 <div class="link-share">
                     <span>Chia sẻ:</span>
-                    <ul>                        
-                        <li><a href="/"><img src="~/images/facebook.png" alt="" /></a></li>                        
+                    <ul>
+                        <li><a href="/"><img src="~/images/facebook.png" alt="" /></a></li>
                     </ul>
                 </div>
             </div>
@@ -88,7 +88,6 @@
                 </div>
 
                 <div class="box-side box_product_sale">
-                    
                 </div>
 
 

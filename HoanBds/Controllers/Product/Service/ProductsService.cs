@@ -8,16 +8,16 @@ using Newtonsoft.Json.Linq;
 
 namespace HoanBds.Controllers.Product.Service
 {
-    public class ProductsService 
+    public class ProductsService
     {
         private readonly IConfiguration configuration;
         private readonly RedisConn redisService;
         private readonly ProductDetailMongoAccess _productDetailMongoAccess;
 
-        public ProductsService(IConfiguration _configuration, RedisConn _redisService) 
+        public ProductsService(IConfiguration _configuration, RedisConn _redisService)
         {
-            _productDetailMongoAccess = new ProductDetailMongoAccess(configuration);
             configuration = _configuration;
+            _productDetailMongoAccess = new ProductDetailMongoAccess(_configuration);
             redisService = _redisService;
         }
 
@@ -64,14 +64,14 @@ namespace HoanBds.Controllers.Product.Service
             }
             catch (Exception ex)
             {
-                Utilities.LogHelper.InsertLogTelegramByUrl(configuration["telegram_log_error_fe:Token"], configuration["telegram_log_error_fe:GroupId"], "getListMenuHelp " + ex.Message);
+                Utilities.LogHelper.InsertLogTelegramByUrl(configuration["log_telegram:Token"], configuration["log_telegram:GroupId"], "getListMenuHelp " + ex.Message);
                 return null;
             }
         }
-        public async Task<ProductDetailResponseModel ?> GetProductDetail(string product_id)
+        public async Task<ProductDetailResponseModel?> GetProductDetail(string product_id)
         {
             try
-            {  
+            {
                 int node_redis = Convert.ToInt32(configuration["Redis:Database:db_search_result"]);
 
                 var cache_name = CacheType.PRODUCT_DETAIL + product_id;
@@ -88,12 +88,12 @@ namespace HoanBds.Controllers.Product.Service
                 if (data != null)
                 {
                     redisService.Set(cache_name, JsonConvert.SerializeObject(data), node_redis);
-                }                
+                }
                 return data;
             }
             catch (Exception ex)
             {
-                Utilities.LogHelper.InsertLogTelegramByUrl(configuration["telegram_log_error_fe:Token"], configuration["telegram_log_error_fe:GroupId"], "GetProductDetail " + ex.Message);
+                Utilities.LogHelper.InsertLogTelegramByUrl(configuration["log_telegram:Token"], configuration["log_telegram:GroupId"], "GetProductDetail " + ex.Message);
                 return null;
             }
         }
@@ -136,14 +136,14 @@ namespace HoanBds.Controllers.Product.Service
                 }
 
                 if (obj_product != null && obj_product.items.Count() > 0)
-                {                  
+                {
                     var model = new ProductListResponseModel
                     {
                         count = obj_product.count,
                         items = obj_product.items.Skip(skip).Take(top).ToList()
                     };
                     return model;
-                }                
+                }
             }
             catch
             {
@@ -151,7 +151,7 @@ namespace HoanBds.Controllers.Product.Service
             return null;
 
         }
-        
+
         public async Task<List<ProductMongoDbModel>> Search(string keyword)
         {
             try

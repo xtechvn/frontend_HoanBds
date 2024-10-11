@@ -15,12 +15,12 @@ namespace HoanBds.Service.MongoDb
         public ProductDetailMongoAccess(IConfiguration configuration)
         {
             _configuration = configuration;
-            string url = "mongodb://" + configuration["DataBaseConfig:MongoServer:Host"] + "";
-            var client = new MongoClient("mongodb://" + configuration["DataBaseConfig:MongoServer:Host"] + "");
-            IMongoDatabase db = client.GetDatabase(configuration["DataBaseConfig:MongoServer:catalog_core"]);
+            string url = "mongodb://" + configuration["MongoServer:Host"] + "";
+            var client = new MongoClient("mongodb://" + configuration["MongoServer:Host"] + "");
+            IMongoDatabase db = client.GetDatabase(configuration["MongoServer:catalog_core"]);
             _productDetailCollection = db.GetCollection<ProductMongoDbModel>("ProductDetail");
         }
-       
+
         public async Task<string> UpdateAsync(ProductMongoDbModel model)
         {
             try
@@ -53,11 +53,11 @@ namespace HoanBds.Service.MongoDb
             catch (Exception ex)
             {
                 string error_msg = Assembly.GetExecutingAssembly().GetName().Name + "->" + MethodBase.GetCurrentMethod().Name + "=>" + ex.Message;
-                LogHelper.InsertLogTelegramByUrl(_configuration["telegram:log_try_catch:bot_token"], _configuration["telegram:log_try_catch:group_id"], error_msg);
+                LogHelper.InsertLogTelegramByUrl(_configuration["log_telegram:token"], _configuration["log_telegram:group_id"], error_msg);
                 return null;
             }
         }
-       
+
 
         public async Task<List<ProductMongoDbModel>> Listing(string keyword = "", int group_id = -1, int page_index = 1, int page_size = 10)
         {
@@ -85,11 +85,11 @@ namespace HoanBds.Service.MongoDb
             catch (Exception ex)
             {
                 string error_msg = Assembly.GetExecutingAssembly().GetName().Name + "->" + MethodBase.GetCurrentMethod().Name + "=>" + ex.Message;
-                LogHelper.InsertLogTelegramByUrl(_configuration["telegram:log_try_catch:bot_token"], _configuration["telegram:log_try_catch:group_id"], error_msg);
+                LogHelper.InsertLogTelegramByUrl(_configuration["log_telegram:token"], _configuration["log_telegram:group_id"], error_msg);
                 return null;
             }
         }
-       
+
         public async Task<ProductListResponseModel> ListingByPriceRange(double amount_min, double amout_max, string keyword = "", int group_product_id = -1, int page_index = 1, int page_size = 12)
         {
             try
@@ -131,7 +131,7 @@ namespace HoanBds.Service.MongoDb
             catch (Exception ex)
             {
                 string error_msg = Assembly.GetExecutingAssembly().GetName().Name + "->" + MethodBase.GetCurrentMethod().Name + "=>" + ex.Message;
-                LogHelper.InsertLogTelegramByUrl(_configuration["telegram:log_try_catch:bot_token"], _configuration["telegram:log_try_catch:group_id"], error_msg);
+                LogHelper.InsertLogTelegramByUrl(_configuration["log_telegram:bot_token"], _configuration["log_telegram:group_id"], error_msg);
                 return null;
             }
         }
@@ -150,7 +150,7 @@ namespace HoanBds.Service.MongoDb
             catch (Exception ex)
             {
                 string error_msg = Assembly.GetExecutingAssembly().GetName().Name + "->" + MethodBase.GetCurrentMethod().Name + "=>" + ex.Message;
-                LogHelper.InsertLogTelegramByUrl(_configuration["telegram:log_try_catch:bot_token"], _configuration["telegram:log_try_catch:group_id"], error_msg);
+                LogHelper.InsertLogTelegramByUrl(_configuration["log_telegram:token"], _configuration["log_telegram:group_id"], error_msg);
             }
             return null;
 
@@ -174,7 +174,7 @@ namespace HoanBds.Service.MongoDb
             catch (Exception ex)
             {
                 string error_msg = Assembly.GetExecutingAssembly().GetName().Name + "->" + MethodBase.GetCurrentMethod().Name + "=>" + ex.Message;
-                LogHelper.InsertLogTelegramByUrl(_configuration["telegram:log_try_catch:bot_token"], _configuration["telegram:log_try_catch:group_id"], error_msg);
+                LogHelper.InsertLogTelegramByUrl(_configuration["log_telegram:token"], _configuration["log_telegram:group_id"], error_msg);
                 return null;
             }
         }
@@ -197,7 +197,7 @@ namespace HoanBds.Service.MongoDb
             catch (Exception ex)
             {
                 string error_msg = Assembly.GetExecutingAssembly().GetName().Name + "->" + MethodBase.GetCurrentMethod().Name + "=>" + ex.Message;
-                LogHelper.InsertLogTelegramByUrl(_configuration["telegram:log_try_catch:bot_token"], _configuration["telegram:log_try_catch:group_id"], error_msg);
+                LogHelper.InsertLogTelegramByUrl(_configuration["log_telegram:token"], _configuration["log_telegram:group_id"], error_msg);
                 return null;
             }
         }
@@ -246,7 +246,7 @@ namespace HoanBds.Service.MongoDb
                 var sort_filter = Builders<ProductMongoDbModel>.Sort;
                 var sort_filter_definition = sort_filter.Descending(x => x.updated_last);
                 var model = _productDetailCollection.Find(filterDefinition);
-                int count =  model.ToList().Count;
+                int count = model.ToList().Count;
                 model.Options.Skip = page_index < 1 ? 0 : (page_index - 1) * page_size;
                 model.Options.Limit = page_size;
 
@@ -278,7 +278,7 @@ namespace HoanBds.Service.MongoDb
             catch (Exception ex)
             {
                 string error_msg = Assembly.GetExecutingAssembly().GetName().Name + "->" + MethodBase.GetCurrentMethod().Name + "=>" + ex.Message;
-                LogHelper.InsertLogTelegramByUrl(_configuration["telegram:log_try_catch:bot_token"], _configuration["telegram:log_try_catch:group_id"], error_msg);
+                LogHelper.InsertLogTelegramByUrl(_configuration["log_telegram:token"], _configuration["log_telegram:group_id"], error_msg);
                 return null;
             }
         }

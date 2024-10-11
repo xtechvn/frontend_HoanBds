@@ -1,17 +1,22 @@
 ﻿namespace HoanBds.Models
 {
     public class CategoryArticleModel
-    {       
-        public long id { get; set; }      
-        public string title { get; set; }
-        public string lead { get; set; }       
-        public int status { get; set; } 
-        public string image_169 { get; set; } = null!;       
-        public string image_43 { get; set; } = null!;
-        public string image_11 { get; set; } = null!;       
-        public DateTime publish_date { get; set; }    
-        public int? pageview { get; set; }      
-        public string list_category_id { get; set; }  
-        public string list_category_name { get; set; }
+    {
+        public long Id { get; set; }
+        public string Title { get; set; }
+        public string Lead { get; set; }
+        public int Status { get; set; }
+        public string Image169 { get; set; } = null!;
+        public string Image43 { get; set; } = null!;
+        public string Image11 { get; set; } = null!;
+        public DateTime PublishDate { get; set; }
+        public string AuthorName { get; set; }
+        public string MainCategoryName { get; set; }
+        public string MainCategoryId { get; set; }
+
+        public int Position { get; set; }
+        public int? PageView { get; set; }
+        public string ListCategoryId { get; set; }
+        public string ListCategoryName { get; set; }
     }
 }

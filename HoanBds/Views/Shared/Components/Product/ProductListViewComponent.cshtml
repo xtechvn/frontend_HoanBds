@@ -4,35 +4,34 @@
 @{
     if (Model != null)
     {
-        int current_page =( Model.page_index/Model.page_size)+1;
-        int total_items = Model.count;// Tổng toàn bộ bản ghi theo 1 cate
-        int page_size = Model.page_size;
         if (Model != null)
         {
-            <div class="list-product">
-
-                @foreach (var item in Model.items)
-                {
-                    string link = @Html.GetStaticUrlProduct(item.name, item._id);
-                    <div class="item-product">
-                        <a href="@link">
-                            <div class="thumb thumb-product">
-                                <img src="@item.avatar" alt="@item.name" />
+            foreach (var item in Model.items)
+            {
+                string link = @Html.GetStaticUrlProduct(item.name, item._id);
+                <div class="swiper-slide">
+                    <div class="item--service">
+                        <div class="box-service zoom-slow">
+                            <div class="img-service fade-box">
+                                <a href="@link" class="banner-hover-effect">
+                                    <img src="@item.avatar" alt="@item.name" />
+                                </a>
                             </div>
-                            <div class="box-info">
-                                <h3 class="name-product">@item.name </h3>
-                                <div class="flex-price">
-                                    <div class="price-sale">@item.label_price</div>
-                                    @*<div class="price-old">689,098đ</div>*@
-                                </div>
+                            <div class="desc-service">
+                                <h3 class="title">
+                                    <a href="#">
+                                        @item.name
+                                    </a>
+                                </h3>
+                                <p>
+                                    @item.description
+                                </p>
+                                <a href="#" class="site-button black"> <span>Xem thêm </span><em></em></a>
                             </div>
-                        </a>
+                        </div>
                     </div>
-                }
-            </div>
-
-            @*Phân trang*@
-            @await Component.InvokeAsync("Pagination",new {page = current_page, total_items = total_items, page_size = page_size, view="~/Views/Shared/Components/PaginationAjax/Default.cshtml" })
+                </div>
+            }
         }
     }
 }
