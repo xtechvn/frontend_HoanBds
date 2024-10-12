@@ -6,9 +6,9 @@
 @{
     if (Model != null)
     {
-        @foreach (var item in Model.obj_article_list)
+        @foreach (var item in Model.obj_article_list.Take(4))
         {
-            string link = @Html.GetStaticUrlNews(item.Title, item.Id);
+            string link = @Html.GetStaticUrlNews(item.title, item.id);
             <div class="col-md-6 col-sm-6 col-xs-6 col-blog">
                 <div class="overlay-wraper latest-blog-dark-outer">
                     <a href="@link" class="fade-box">

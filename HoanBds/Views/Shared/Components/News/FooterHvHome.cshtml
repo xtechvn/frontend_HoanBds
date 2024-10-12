@@ -1,77 +1,30 @@
-﻿@using HoanBds.Utilities;
-@inject IConfiguration Configuration
-<div class="main-footer--bottom">
-    <div class="container scroltop-to-bottom">
-        <div class="row">
+﻿@using HoanBds.ViewModels;
+@using HoanBds.Utilities;
+
+@model ArticleViewModel
+@{
+    if (Model != null)
+    {
+        if (Model.obj_article_list.First().list_category_name != null)
+        {
+            string forder_name = Model.obj_article_list.First().list_category_name.Split(",").First();
 
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg">
-                <div class="footer-col footer-block">
+                <div class="footer-col footer-link">
                     <h4 class="footer-title">
-                        Giới thiệu
-                    </h4>
-                    <div class="footer-content">
-
-                        <p>
-                            Chúng tôi mong muốn trở thành nhà cung cấp dịch vụ xây dựng dân dụng giá
-                            trị gia tăng, hướng đến trở thành một mô hình chuẩn mực và tiên phong
-                            trong lĩnh vực xây dựng tại thị trường Việt Nam.
-                        </p>
-
-
-                        <div class="social-list">
-
-                            <a href="index.html" target="_blank"><i class="icofont-facebook"></i></a>
-
-
-                            <a href="index.html" target="_blank"><i class="icofont-google-plus"></i></a>
-
-
-                            <a href="index.html" target="_blank"><i class="icofont-twitter"></i></a>
-
-
-                            <a href="index.html" target="_blank"><i class="icofont-brand-youtube"></i></a>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg">
-                <div class="footer-col footer-block">
-                    <h4 class="footer-title">
-                        Thông tin liên hệ
+                        @forder_name
                     </h4>
                     <div class="footer-content toggle-footer">
                         <ul>
-                            <li>
-                                <span>Địa chỉ:</span> Tầng 4, tòa nhà Flemington, số 182, đường Lê
-                                Đại Hành, phường 15, quận 11, Tp. Hồ Chí Minh.
-                            </li>
-                            <li><span>Điện thoại:</span> 1900.636.099</li>
-                            <li><span>Fax:</span> 1900.636.099</li>
-                            <li><span>Email:</span> hi@haravan.com</li>
+                            @foreach (var item in Model.obj_article_list)
+                            {
+                                string link = @Html.GetStaticUrlNews(item.title, item.id);
+                                <li class="item"><a href="@link">@Html.Raw(item.title)</a></li>
+                            }
                         </ul>
                     </div>
                 </div>
             </div>
-
-
-            @await Component.InvokeAsync("ArticleList", new { _zone_info = Html.GetStaticBlogNews("footer_news_zone_1", Configuration) })
-            @await Component.InvokeAsync("ArticleList", new { _zone_info = Html.GetStaticBlogNews("footer_news_zone_2", Configuration) })
-
-        </div>
-
-    </div>
-</div>
-<div class="main-footer--copyright">
-    <div class="container">
-        <div class="main-footer--border">
-            <p>
-                Copyright © 2024 <a href="index.html"> NextCompany</a>. <a target="_blank" rel="noreferrer"
-                                                                           href="https://www.haravan.com/">Powered by Haravan</a>
-            </p>
-        </div>
-    </div>
-</div>
+        }
+    }
+}
