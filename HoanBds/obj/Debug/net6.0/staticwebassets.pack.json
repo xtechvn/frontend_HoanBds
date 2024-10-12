@@ -345,6 +345,10 @@
       "PackagePath": "staticwebassets\\js\\popper.min.js"
     },
     {
+      "Id": "C:\\Users\\84385\\Desktop\\C#\\Hoan_Bds\\HoanBds\\wwwroot\\js\\product\\product_detail.js",
+      "PackagePath": "staticwebassets\\js\\product\\product_detail.js"
+    },
+    {
       "Id": "C:\\Users\\84385\\Desktop\\C#\\Hoan_Bds\\HoanBds\\wwwroot\\js\\swiper-bundle.min.js",
       "PackagePath": "staticwebassets\\js\\swiper-bundle.min.js"
     },

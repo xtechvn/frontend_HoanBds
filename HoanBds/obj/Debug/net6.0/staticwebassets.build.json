@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "79HDUDbBTG2EleJO3XIupK5MmPbBNVzFP6hdFLdcxcI=",
+  "Hash": "ckbRD5uIrumLmssDKquIc2GyNupRnpzZCoIYWxugS1M=",
   "Source": "HoanBds",
   "BasePath": "_content/HoanBds",
   "Mode": "Default",
@@ -1668,6 +1668,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\popper.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\84385\\Desktop\\C#\\Hoan_Bds\\HoanBds\\wwwroot\\js\\product\\product_detail.js",
+      "SourceId": "HoanBds",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\84385\\Desktop\\C#\\Hoan_Bds\\HoanBds\\wwwroot\\",
+      "BasePath": "_content/HoanBds",
+      "RelativePath": "js/product/product_detail.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\product\\product_detail.js"
     },
     {
       "Identity": "C:\\Users\\84385\\Desktop\\C#\\Hoan_Bds\\HoanBds\\wwwroot\\js\\swiper-bundle.min.js",

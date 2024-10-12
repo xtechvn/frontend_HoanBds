@@ -110,6 +110,5 @@ namespace HoanBds.Controllers.News
                 return StatusCode(500); // Trả về lỗi 500 nếu có lỗi
             }
         }
-
     }
 }

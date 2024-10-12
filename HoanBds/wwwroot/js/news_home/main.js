@@ -2,7 +2,7 @@
 
     var category_id = 39;
     const page = 1;
-    // Load tin trên trang chủ NEWS
+    // Load tin trên trang chủ 
     news.bin_news_home(category_id, page);
 })
 

@@ -7,165 +7,244 @@
 
     var specification_list = new List<ProductSpecificationTypeModel>()
     {
-      new ProductSpecificationTypeModel() { _id= 1, name= "Thương hiệu", type= 3 },
-       new ProductSpecificationTypeModel(){ _id= 5, name= "Chất liệu", type= 3 },
-       new ProductSpecificationTypeModel(){ _id= 2, name= "Độ tuổi khuyến nghị", type= 3 },
-       new ProductSpecificationTypeModel(){ _id= 6, name= "Ngày sản xuất", type= 2 },
-       new ProductSpecificationTypeModel(){ _id= 3, name= "Tên tổ chức chịu trách nhiệm sản xuất", type= 3 },
-       new ProductSpecificationTypeModel(){ _id= 7, name= "Địa chỉ tổ chức chịu trách nghiệm sản xuất", type= 3 },
-       new ProductSpecificationTypeModel(){ _id= 4, name= "Sản phẩm đặt theo yêu cầu", type= 3 },
+      new ProductSpecificationTypeModel() { _id= 1, name= "CCMN", type= 3 },
+       new ProductSpecificationTypeModel(){ _id= 5, name= "Nhà Phố", type= 3 },
+       new ProductSpecificationTypeModel(){ _id= 2, name= "Đất", type= 3 },
     };
 }
 @if (Model != null && Model.product_main != null)
 {
-    @using System.Text.Json
+    <div class=" main-content-theme">
 
-    <input type="hidden" id="product_json_detail"
-           value='@JsonSerializer.Serialize(new {
-           img_thumb = @Model.product_main.images[0],
-           amount_vnd = @Model.product_main.label_price,
-           product_code = @Model.product_main._id,
-           product_name = @Model.product_main.name.Replace("\"", "").Replace("'", ""),
-           link = Html.GetStaticUrlProduct(Model.product_main.name, Model.product_main._id)
-       })' />
+        <section class="section-parallax section-parallax-breadcrumb bg-top">
+            <div class="overlay-main"></div>
+            <div class="banner-title-outer">
+                <div class="container">
+                    <div class="banner-title-name">
+                        <h1 class="text-white">Dự án</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pd5  ">
+                            <ol class="breadcrumb breadcrumb-arrows">
+                                <li>
+                                    <a href="/" target="_blank"><span>Trang chủ</span></a>
+                                </li>
 
-    <section class="section-details-product" data-code="@Model.product_main._id">
-        <div class="container">
-            <div class="wrap-details">
-                <div class="gallery-product">
-                    <div class="swiper thumb-big">
-                        <div class="swiper-wrapper">
-                            @if (Model.product_main.images != null && Model.product_main.images.Count > 0)
-                            {
-                                foreach (var img in Model.product_main.images)
-                                {
-                                    var img_src = img;
-                                    if (img_src == null || img_src.Trim() == "") img_src = "";
-                                    if (!img_src.Contains(static_domain)
-                                    && !img_src.Contains("data:image")
-                                    && !img_src.Contains("http")
-                                    && !img_src.Contains("base64,"))
-                                        img_src = static_domain + img;
-                                    <div class="swiper-slide">
-                                        <img src="@img_src" />
-                                    </div>
-                                }
-                            }
+                                <li class="active">
+                                    <span>Apartment Lumiere Riverside</span>
+                                </li>
+                            </ol>
                         </div>
-                    </div>
-                    <div class="swiper thumb-small">
-                        <div class="swiper-wrapper">
-                            @if (Model.product_main.images != null && Model.product_main.images.Count > 0)
-                            {
-                                foreach (var img in Model.product_main.images)
-                                {
-                                    var img_src = img;
-                                    if (img_src == null || img_src.Trim() == "") img_src = "";
-                                    if (!img_src.Contains(static_domain)
-                                    && !img_src.Contains("data:image")
-                                    && !img_src.Contains("http")
-                                    && !img_src.Contains("base64,"))
-                                        img_src = static_domain + img;
-                                    <div class="swiper-slide">
-                                        <img src="@img_src" />
-                                    </div>
-                                }
-                            }
-                        </div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
-                    </div>
-                </div>
-                <div class="info-product">
-                    <div class="box-name-product">
-                        <h1 class="name-product">@Model.product_main.name </h1>
-                    </div>
-
-                    <div class="box-price">
-                        @if (Model.product_sub == null || Model.product_sub.Count <= 0)
-                        {
-                            <span class="price">@Model.product_main.amount.ToString("N0")</span>
-                        }
-                        else
-                        {
-                            @if (Model.product_main.amount_min == null) Model.product_main.amount_min = 0;
-                            @if (Model.product_main.amount_max == null) Model.product_main.amount_max = 0;
-                            <span class="price">@(((double)Model.product_main.amount_min).ToString("N0")) đ - @(((double)Model.product_main.amount_max).ToString("N0")) đ</span>
-                        }
-                    </div>
-
-                    <div class="box-info-details">
-                        <table class="attribute-table">
-                            <tbody>
-                                @if (Model.product_main.attributes != null && Model.product_main.attributes.Count > 0)
-                                {
-                                    foreach (var attribute_info in Model.product_main.attributes)
-                                    {
-                                        @if (Model.product_main.attributes_detail != null && Model.product_main.attributes_detail.Count > 0)
-                                        {
-                                            var attribute_detail_by_id = Model.product_main.attributes_detail.Where(x => x.attribute_id == attribute_info._id);
-                                            if (attribute_detail_by_id != null && attribute_detail_by_id.Count() > 0)
-                                            {
-                                                <tr class="attributes" data-level="@attribute_info._id">
-                                                    <td>@attribute_info.name</td>
-                                                    <td>
-                                                        <ul class="box-tag">
-                                                            @foreach (var attr_detail in attribute_detail_by_id)
-                                                            {
-                                                                <li class="attribute-detail" data-id="@attr_detail.name"><img style="@(attr_detail.img!=null && attr_detail.img.Trim()!=""?"":" display:none;")" src="@attr_detail.img" />@attr_detail.name</li>
-                                                            }
-                                                        </ul>
-                                                    </td>
-                                                </tr>
-                                            }
-
-                                        }
-                                    }
-                                }
-                            </tbody>
-                        </table>
-                        <h4 class="tt-info">Thông tin sản phẩm</h4>
-                        <table id="tb-info-table" class="tb-info">
-                            <tbody>
-                                @if (Model.product_main.specification != null && Model.product_main.specification.Count > 0)
-                                {
-                                    var specs = Model.product_main.specification.Where(x => x.value != null);
-                                    foreach (var spec in specs)
-                                    {
-                                        var spec_selected = specification_list.FirstOrDefault(x => x._id == spec.attribute_id);
-                                        if (spec_selected != null && spec_selected._id > 0 && spec.value != null && spec.value.Trim() != "" && spec.value.Trim() != "null")
-                                        {
-                                            <tr>
-                                                <td>@spec_selected.name</td>
-                                                <td>@spec.value</td>
-                                            </tr>
-                                        }
-                                    }
-                                }
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
-            @{
-                if (Model.product_main.description != null)
-                {
-                    <div class="box-description">
-                        <h3 class="title">Chi tiết sản phẩm</h3>
-                        <div class="content">
-                            @Html.Raw(Model.product_main.description.Replace("\n", " <br />"));
+        </section>
+        <section class="product-detail-wrapper">
+            <div class="container">
+                <div class="row product-detail-main">
+                    <div class="col-md-6 col-sm-12 product-content-desc" id="detail-product">
+                        <div class="product-title">
+                            <h1 class="title">Sunshinecuty Nextcompany</h1>
+                            <span class="pro_sku"><strong>SKU:</strong> DA-001</span>
+                        </div>
+                        <div class="product-options">
+                            <div class="product-price" id="price-preview">
+
+                                <span class="pro-price">20,000,000₫</span>
+                                <del>25,000,000₫</del>
+                            </div>
+
+                        </div>
+
+                        <div class="product-action">
+                            <a href="javascript:;" class="site-button black">
+                                Gửi thông tin liên hệ
+                            </a>
+                        </div>
+
+                        <div class="product-description">
+                            <h2>Mô tả dự án</h2>
+                            <div class="description-content expandable-toggle opened mb">
+                                <div class="description-productdetail" style="height: 130px; overflow: hidden;">
+                                    <p>
+                                        <em><strong>Sunshinecuty&nbsp;Nextcompany &nbsp;</strong></em>&nbsp;mang dấu ấn của một
+                                        tổ hợp căn hộ
+                                        hạng sang được quy hoạch bài bản theo mô hình smart compound bên sông Sài Gòn. Gói trọn
+                                        tiện ích
+                                        đắng cấp quốc tế cùng tinh hoa của xu hướng sống thông minh trong một quần
+                                        thể,&nbsp;<strong>Sunshinecuty&nbsp;</strong>&nbsp;<strong>Nextcompany </strong>tiên
+                                        phong xây dựng
+                                        một tiêu chuẩn sống thông minh, thời thượng tại Nam Sài Gòn, là xứ sở của cuộc sống hiện
+                                        đại, dẫn
+                                        dầu xu hướng tương lai. Dịch vụ chuẩn 5 sao quốc tế cùng hệ thống quản lý – vận hành ứng
+                                        dụng công
+                                        nghệ thông minh được khai thác hoàn hảo tài, nơi hội tụ trọn vẹn của những chuẩn mực giá
+                                        trị sống.
+                                    </p>
+                                    <h4>KIẾN TRÚC XANH ẤN TƯỢNG</h4>
+                                    <div>
+                                        &nbsp;- Có hai điều rất dễ nhận thấy ở các công dân toàn cầu – mà người Sài Gòn trẻ
+                                        cũng là một đại
+                                        diện tiêu biểu. Đó là khả năng cập nhật và làm chủ công nghệ, mong muốn đưa công nghệ
+                                        gắn liền với
+                                        cuộc sống. Điều còn lại là một ý thức và mong muốn dành cho một cuộc sống xanh. Hiểu
+                                        được điều
+                                        này,&nbsp;<strong>Sunshinecuty&nbsp;</strong>&nbsp;<strong>Nextcompany&nbsp;</strong>&nbsp;đã
+                                        mang
+                                        tới cho người dân của thành phố một lựa chọn vượt lên mọi chuẩn xanh đang được áp dụng
+                                        cho các dự án
+                                        bất động sản. Có đến trên 70% diện tích của dự án là dành cho các khu công viên, cây
+                                        xanh, hồ bơi
+                                        (hồ cảnh quan liên tòa, bể bơi vô cực, thác tràn nghệ thuật,…), sân thể thao đa năng với
+                                        bóng râm
+                                        rợp mát.
+                                    </div>
+                                    <div> </div>
+                                    <div>CHUẨN MỰC THƯỢNG LƯU</div>
+                                    <div>
+                                        <p>
+                                            &nbsp;- Được tư vấn thiết kế bởi đội ngũ kiến trúc sư chuyên nghiệp, Sunshine City
+                                            Sài Gòn là sự
+                                            giao hòa của không gian sống và các dịch vụ, tiện ích thương mại, nơi những giá trị
+                                            tinh hoa
+                                            nâng tầm đẳng cấp cho chuẩn mực sống thượng lưu.
+                                        </p>
+                                        <p>
+                                            &nbsp;- Đẳng cấp thượng lưu thể hiện trong những chi tiết nhấn nhá đầy dụng ý của
+                                            thiết kế, sự tỉ
+                                            mỉ, tinh tế của nội thất cao cấp mạ vàng đến từ những thương hiệu lừng danh thế
+                                            giới.
+                                        </p>
+                                        <p>
+                                            &nbsp;- Một sự xa hoa xứng đáng dành cho những chủ nhân đích thực, nơi căn hộ không
+                                            chỉ là tổ ấm,
+                                            mà còn là một chỉ dấu của cuộc sống thành đạt, vương giả.
+                                        </p>
+                                    </div>
+                                    <h4>TỔNG QUAN SUNSHINE CITY SÀI GÒN</h4>
+                                    <div>
+                                        <p>&nbsp; - Diện tích khu đất: 42.548,8 m2</p>
+                                        <p>&nbsp; - Số block cao tầng 9</p>
+                                        <p>&nbsp; - Tầng cao 26 – 38</p>
+                                        <p>&nbsp; - Loại hình căn hộ Văn phòng đa năng, căn hộ hạng sang, Sky villas</p>
+                                        <p>&nbsp; - &nbsp;Mật độ xây dựng 100%</p>
+                                    </div>
+                                </div>
+                                <button class="expandable-content_toggle js_expandable_content btn-viewmore">
+                                    <span class="expandable-content_toggle-icon"></span>
+                                    <span class="expandable-content_toggle-text">Xem thêm</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                }
-            }
+                    <div class="col-md-6">
+                        <div class="gallery-product">
+                            <div class="swiper thumb-big swiper-initialized swiper-horizontal swiper-backface-hidden">
+                                <div class="swiper-wrapper" id="swiper-wrapper-b91038d5a32fbf10b" aria-live="polite">
+                                    <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 8" style="width: 585px; margin-right: 15px;">
+                                        <div class="thumb-1x1">
+                                            <img src="images/p-about-stories_11bce.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 8" style="width: 585px; margin-right: 15px;">
+                                        <div class="thumb-1x1">
+                                            <img src="images/p-about-stories_21bce.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" role="group" aria-label="3 / 8" style="width: 585px; margin-right: 15px;">
+                                        <div class="thumb-1x1">
+                                            <img src="images/p-about-stories_31bce.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" role="group" aria-label="4 / 8" style="width: 585px; margin-right: 15px;">
+                                        <div class="thumb-1x1">
+                                            <img src="images/p-about-stories_41bce.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" role="group" aria-label="5 / 8" style="width: 585px; margin-right: 15px;">
+                                        <div class="thumb-1x1">
+                                            <img src="images/p-sv-award1bce.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" role="group" aria-label="6 / 8" style="width: 585px; margin-right: 15px;">
+                                        <div class="thumb-1x1">
+                                            <img src="images/p-about-stories_21bce.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" role="group" aria-label="7 / 8" style="width: 585px; margin-right: 15px;">
+                                        <div class="thumb-1x1">
+                                            <img src="images/p-about-stories_31bce.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" role="group" aria-label="8 / 8" style="width: 585px; margin-right: 15px;">
+                                        <div class="thumb-1x1">
+                                            <img src="images/p-about-stories_41bce.jpg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-nav">
+                                    <div class="swiper-button-prev swiper-button-disabled" tabindex="-1" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-b91038d5a32fbf10b" aria-disabled="true"></div>
+                                    <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-b91038d5a32fbf10b" aria-disabled="false"></div>
+                                </div>
+                                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                            </div>
+                            <div class="swiper thumb-small swiper-initialized swiper-horizontal swiper-free-mode swiper-watch-progress swiper-backface-hidden swiper-thumbs">
+                                <div class="swiper-wrapper" id="swiper-wrapper-2a4ce3b27fbdb471" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
+                                    <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active swiper-slide-thumb-active" role="group" aria-label="1 / 8" style="width: 135px; margin-right: 15px;">
+                                        <div class="thumb-1x1">
+                                            <img src="images/p-about-stories_11bce.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-next" role="group" aria-label="2 / 8" style="width: 135px; margin-right: 15px;">
+                                        <div class="thumb-1x1">
+                                            <img src="images/p-about-stories_21bce.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible" role="group" aria-label="3 / 8" style="width: 135px; margin-right: 15px;">
+                                        <div class="thumb-1x1">
+                                            <img src="images/p-about-stories_31bce.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible" role="group" aria-label="4 / 8" style="width: 135px; margin-right: 15px;">
+                                        <div class="thumb-1x1">
+                                            <img src="images/p-about-stories_41bce.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" role="group" aria-label="5 / 8" style="width: 135px; margin-right: 15px;">
+                                        <div class="thumb-1x1">
+                                            <img src="images/p-sv-award1bce.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" role="group" aria-label="6 / 8" style="width: 135px; margin-right: 15px;">
+                                        <div class="thumb-1x1">
+                                            <img src="images/p-about-stories_21bce.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" role="group" aria-label="7 / 8" style="width: 135px; margin-right: 15px;">
+                                        <div class="thumb-1x1">
+                                            <img src="images/p-about-stories_31bce.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" role="group" aria-label="8 / 8" style="width: 135px; margin-right: 15px;">
+                                        <div class="thumb-1x1">
+                                            <img src="images/p-about-stories_41bce.jpg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        </div>
-    </section>
+    </div>
 }
 
 @section Scripts {
-    <script src="~/js/product/constants.js"></script>
-    <script src="~/js/product/global.js"></script>
+@*     <script src="~/js/product/constants.js"></script>
+    <script src="~/js/product/global.js"></script> *@
     <script src="~/js/product/product_detail.js"></script>
 
 }

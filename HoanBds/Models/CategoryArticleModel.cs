@@ -1,22 +1,42 @@
-﻿namespace HoanBds.Models
+﻿using Nest;
+
+namespace HoanBds.Models
 {
     public class CategoryArticleModel
     {
-        public long Id { get; set; }
-        public string Title { get; set; }
-        public string Lead { get; set; }
-        public int Status { get; set; }
-        public string Image169 { get; set; } = null!;
-        public string Image43 { get; set; } = null!;
-        public string Image11 { get; set; } = null!;
-        public DateTime PublishDate { get; set; }
-        public string AuthorName { get; set; }
-        public string MainCategoryName { get; set; }
-        public string MainCategoryId { get; set; }
+        [PropertyName("Id")]
+        public long id { get; set; }
 
-        public int Position { get; set; }
-        public int? PageView { get; set; }
-        public string ListCategoryId { get; set; }
-        public string ListCategoryName { get; set; }
+        [PropertyName("Title")]
+        public string title { get; set; }
+
+        [PropertyName("Lead")]
+        public string lead { get; set; }
+
+
+
+        [PropertyName("Status")]
+        public int status { get; set; }
+
+        [PropertyName("Image169")]
+        public string image_169 { get; set; } = null!;
+
+        [PropertyName("Image43")]
+        public string image_43 { get; set; } = null!;
+
+        [PropertyName("Image11")]
+        public string image_11 { get; set; } = null!;
+
+        [PropertyName("PublishDate")]
+        public DateTime publish_date { get; set; }
+
+        [PropertyName("PageView")]
+        public int? pageview { get; set; }
+
+        [PropertyName("ListCategoryId")]
+        public string list_category_id { get; set; }
+
+        [PropertyName("ListCategoryName")]
+        public string list_category_name { get; set; }
     }
 }
