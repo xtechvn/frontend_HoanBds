@@ -333,6 +333,14 @@
       "PackagePath": "staticwebassets\\js\\jquery.min.js"
     },
     {
+      "Id": "C:\\Users\\84385\\Desktop\\C#\\Hoan_Bds\\HoanBds\\wwwroot\\js\\news\\main.js",
+      "PackagePath": "staticwebassets\\js\\news\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\Desktop\\C#\\Hoan_Bds\\HoanBds\\wwwroot\\js\\news\\new_detail.js",
+      "PackagePath": "staticwebassets\\js\\news\\new_detail.js"
+    },
+    {
       "Id": "C:\\Users\\84385\\Desktop\\C#\\Hoan_Bds\\HoanBds\\wwwroot\\js\\news_home\\main.js",
       "PackagePath": "staticwebassets\\js\\news_home\\main.js"
     },
@@ -345,8 +353,16 @@
       "PackagePath": "staticwebassets\\js\\popper.min.js"
     },
     {
-      "Id": "C:\\Users\\84385\\Desktop\\C#\\Hoan_Bds\\HoanBds\\wwwroot\\js\\product\\product_detail.js",
-      "PackagePath": "staticwebassets\\js\\product\\product_detail.js"
+      "Id": "C:\\Users\\84385\\Desktop\\C#\\Hoan_Bds\\HoanBds\\wwwroot\\js\\product\\main.js",
+      "PackagePath": "staticwebassets\\js\\product\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\Desktop\\C#\\Hoan_Bds\\HoanBds\\wwwroot\\js\\product\\product_contants.js",
+      "PackagePath": "staticwebassets\\js\\product\\product_contants.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\Desktop\\C#\\Hoan_Bds\\HoanBds\\wwwroot\\js\\sendclientinfor\\main.js",
+      "PackagePath": "staticwebassets\\js\\sendclientinfor\\main.js"
     },
     {
       "Id": "C:\\Users\\84385\\Desktop\\C#\\Hoan_Bds\\HoanBds\\wwwroot\\js\\swiper-bundle.min.js",
