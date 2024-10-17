@@ -33,7 +33,7 @@ namespace HoanBds.ViewComponents.Product
                 if (!_cache.TryGetValue(cacheKey, out var cached_view)) // Kiểm tra xem có trong cache không
                 {
                     var objMenu = new ProductsService(configuration, _redisService);                   
-                    cached_view = await productsService.getProductListByGroupProductId(_group_product_id, _page_index, _page_size);
+                    cached_view = await productsService.ListingByPriceRange(1,float.MinValue,_group_product_id, _page_index, _page_size);
                     if (cached_view != null)
                     {
                         // Lưu vào cache với thời gian hết hạn 

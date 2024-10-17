@@ -58,8 +58,35 @@
             </div>
 
 
-            @await Component.InvokeAsync("ArticleList", new { _zone_info = Html.GetStaticBlogNews("footer_news_zone_1", Configuration) })
-            @await Component.InvokeAsync("ArticleList", new { _zone_info = Html.GetStaticBlogNews("footer_news_zone_2", Configuration) })
+            @await Component.InvokeAsync("Policyfooter", new{ view_name = "~/Views/Shared/Components/Policyfooter/Default.cshtml"})
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg">
+                <div class="footer-col footer-link">
+                    <h4 class="footer-title">
+                        Thông tin
+                    </h4>
+                    <div class="footer-content toggle-footer">
+                        <ul>
+
+                            <li class="item">
+                                <a href="/" title="Trang chủ">Trang chủ</a>
+                            </li>
+
+                            <li class="item">
+                                <a href="/nha-pho-57" title="Dự án">Dự án</a>
+                            </li>
+
+                            <li class="item">
+                                <a href="/tin-tuc-60" title="Blog">Blog</a>
+                            </li>
+
+                            <li class="item">
+                                <a href="/lien-he-61" title="Liên hệ">Liên hệ</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
         </div>
 

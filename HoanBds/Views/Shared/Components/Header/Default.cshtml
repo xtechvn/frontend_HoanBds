@@ -3,6 +3,10 @@
 @{
     string current_url = ViewBag.current_url;
     current_url = current_url.Split("/").Last();
+    Dictionary<int, string> GrProduct = new Dictionary<int, string>();
+    GrProduct.Add(57,"Nhà Phố");
+    GrProduct.Add(58, "CCMN");
+    GrProduct.Add(59,"Đất");
 }
 @if (Model != null)
 {
@@ -14,20 +18,45 @@
         {
 
             <li class="@Html.Raw((item.path.IndexOf(current_url) >=0 && current_url!="")  ?"active":"")">
-                <a class="nav-link" href="@("/" + item.path.Replace("-"+ item.id,"" ) )">@item.name</a>
-                @if (item.group_product_child != null)
+                <a class="nav-link" href="@("/" + item.path)">@item.name</a>
+                @if (item.group_product_child != null && item.group_product_child.Count > 0)
                 {
                     <ul class="sub_menu">
                         @foreach (var i in item.group_product_child)
                         {
 
                             <li class="">
-                                <a href="#">
+                                <a href="@(item.path + "?" + "type=" + i.id)">
                                     @i.name
                                 </a>
                             </li>
 
                         }
+                    </ul>
+                }
+                else if (GrProduct.Keys.Any(key => key == item.id))
+                {
+                    <ul class="sub_menu">
+                        <li class="">
+                            <a href="@(item.path + "?" + "pricecode=1")">
+                                Dưới 10 tỷ
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="@(item.path + "?" + "pricecode=2")">
+                                 10-20 tỷ
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="@(item.path + "?" + "pricecode=3")">
+                                20 - 30 tỷ
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="@(item.path + "?" + "pricecode=4")">
+                                Trên 30 tỷ
+                            </a>
+                        </li>
                     </ul>
                 }
             </li>

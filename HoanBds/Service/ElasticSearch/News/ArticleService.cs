@@ -60,7 +60,7 @@ namespace HoanBds.Service.ElasticSearch.News
             catch (Exception ex)
             {
                 string error_msg = Assembly.GetExecutingAssembly().GetName().Name + "->" + MethodBase.GetCurrentMethod().Name + "=>" + ex.Message;
-                LogHelper.InsertLogTelegramByUrl(configuration["telegram:log_try_catch:bot_token"], configuration["telegram:log_try_catch:group_id"], error_msg);
+                LogHelper.InsertLogTelegramByUrl(configuration["telegram:token"], configuration["telegram:group_id"], error_msg);
             }
             return null;
         }
@@ -132,7 +132,7 @@ namespace HoanBds.Service.ElasticSearch.News
             catch (Exception ex)
             {
                 string error_msg = Assembly.GetExecutingAssembly().GetName().Name + "->" + MethodBase.GetCurrentMethod().Name + "=>" + ex.Message;
-                LogHelper.InsertLogTelegramByUrl(configuration["telegram:log_try_catch:bot_token"], configuration["telegram:log_try_catch:group_id"], error_msg);
+                LogHelper.InsertLogTelegramByUrl(configuration["telegram:token"], configuration["telegram:group_id"], error_msg);
                 return data;
             }
         }
@@ -176,7 +176,7 @@ namespace HoanBds.Service.ElasticSearch.News
             catch (Exception ex)
             {
                 string error_msg = Assembly.GetExecutingAssembly().GetName().Name + "->" + MethodBase.GetCurrentMethod().Name + "=>" + ex.Message;
-                LogHelper.InsertLogTelegramByUrl(configuration["telegram:log_try_catch:bot_token"], configuration["telegram:log_try_catch:group_id"], error_msg);
+                LogHelper.InsertLogTelegramByUrl(configuration["telegram:bot_token"], configuration["telegram:group_id"], error_msg);
             }
 
             return 0;

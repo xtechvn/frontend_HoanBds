@@ -3,6 +3,7 @@
 
 using HoanBds.Controllers.News.Service;
 using HoanBds.Models;
+using HoanBds.Service.MongoDb;
 using HoanBds.Service.Redis;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +18,7 @@ namespace HoanBds.Controllers.News
             configuration = _configuration;
             redisService = _redisService;
         }
-        
+
         /// <summary>
         /// action này load ra trang chủ news
         /// </summary>
@@ -26,7 +27,7 @@ namespace HoanBds.Controllers.News
         /// <param name="page"></param>
         /// <param name="category_path_child"></param>
         /// <returns></returns>
-        [Route("tin-tuc")]
+        [Route("tin-tuc-{id}")]
         [HttpGet]
         public async Task<IActionResult> Index(string path, int category_id, int page = 1, string category_path_child = "")
         {
@@ -34,8 +35,7 @@ namespace HoanBds.Controllers.News
             var article_sv = new NewsService(configuration, redisService);
 
             ViewBag.category_id = -1;// Convert.ToInt32(configuration["menu:news_parent_id"]);
-            ViewBag.page = page;
-            ViewBag.page_size = Convert.ToInt32(configuration["blognews:page_size"]);
+            ViewBag.page_size = page * Convert.ToInt32(configuration["blognews:page_size"]);
             ViewBag.total_items = await article_sv.getTotalNews(-1); // Lấy ra tổng toàn bộ bản ghi theo chuyên mục
             return View();
         }
@@ -73,8 +73,23 @@ namespace HoanBds.Controllers.News
         public async Task<IActionResult> ArticleDetail(string title, long article_id)
         {
             var article_sv = new NewsService(configuration, redisService);
+            NewsMongoService articleMongo_sv = new NewsMongoService(configuration);
+            var view_count = new NewsViewCount()
+            {
+                articleID = article_id,
+                pageview = 1
+            };
+            articleMongo_sv.AddNewOrReplace(view_count);
             var article = await article_sv.getArticleDetailById(article_id);
+
             return View("~/Views/News/ArticleDetail.cshtml", article);
+        }
+
+        [Route("policy/getbodypolicy")]
+        [HttpPost]
+        public async Task<IActionResult> PolicyDetail(long Policy_Id)
+        {
+            return ViewComponent("PolicyBody",Policy_Id);
         }
 
         /// <summary>
@@ -90,18 +105,45 @@ namespace HoanBds.Controllers.News
             try
             {
                 // Tính phân trang load tin
-                int page_size = Convert.ToInt32(configuration["blognews:page_size"]);
+                int page_size = page * Convert.ToInt32(configuration["blognews:page_size"]);
                 page = page == 0 ? 1 : page;
-                int skip = (page - 1) * page_size;
+                /*int skip = (page - 1) * page_size;*/
 
                 var model = new CategoryConfigModel
                 {
-                    category_id = category_id,                
-                    view_name = view_name,                    
-                    skip = skip,
+                    category_id = category_id,
+                    view_name = view_name,
+                    skip = 0,
                     take = page_size
                 };
                 return ViewComponent("ArticleList", model);
+            }
+            catch (Exception ex)
+            {
+                // Ghi log lỗi nếu cần
+                //_logger.LogError(ex, "Error loading header component");
+                return StatusCode(500); // Trả về lỗi 500 nếu có lỗi
+            }
+        }
+
+        [HttpPost("get-most-viewed-article.json")]
+        public async Task<ActionResult> GetMostViewedArticle(int category_id, string view_name, int page) 
+        {
+            try
+            {
+                // Tính phân trang load tin
+                int page_size = page * Convert.ToInt32(configuration["blognews:page_size"]);
+                page = page == 0 ? 1 : page;
+                /*int skip = (page - 1) * page_size;*/
+
+                var model = new CategoryConfigModel
+                {
+                    category_id = category_id,
+                    view_name = view_name,
+                    skip = 0,
+                    take = page_size
+                };
+                return ViewComponent("ArticleMostViewed", model);
             }
             catch (Exception ex)
             {

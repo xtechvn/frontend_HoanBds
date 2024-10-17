@@ -103,6 +103,27 @@ namespace HoanBds
                     pattern: "/san-pham/{title}--{product_code}",
                     defaults: new { controller = "Product", action = "Detail" });
             });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "san-pham",
+                    pattern: "/nha-pho-{id}",
+                    defaults: new { controller = "Product", action = "Index" });
+            });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "san-pham",
+                    pattern: "/ccmn-{id}",
+                    defaults: new { controller = "Product", action = "Index" });
+            });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "san-pham",
+                    pattern: "/dat",
+                    defaults: new { controller = "Product", action = "Index" });
+            });
         }
     }
 }

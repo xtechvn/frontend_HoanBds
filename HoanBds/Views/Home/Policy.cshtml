@@ -1,0 +1,61 @@
+﻿<div class=" main-content-theme">
+
+    <section class="section-parallax section-parallax-breadcrumb bg-top">
+        <div class="overlay-main"></div>
+        <div class="banner-title-outer">
+            <div class="container">
+                <div class="banner-title-name">
+                    <h1 class="text-white">Điều khoản dịch vụ</h1>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pd5  ">
+                        <ol class="breadcrumb breadcrumb-arrows">
+                            <li>
+                                <a href="/" target="_blank"><span>Trang chủ</span></a>
+                            </li>
+
+                            <li class="active">
+                                <span>Điều khoản dịch vụ</span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section section-content-page">
+        <div class="container">
+            <div class="row wrapper-row pd-page">
+
+                <div class="col-md-3 col-sm-12">
+                    <div class="sidebar-page">
+                        <div class="group-menu">
+                            <div class="page_menu_title title_block">
+                                <h2>Danh mục trang</h2>
+                            </div>
+                            <div class="layered layered-category">
+                                @await Component.InvokeAsync("Policyfooter", new { view_name = "~/Views/Shared/Components/Policyfooter/MenuPolicy.cshtml" })
+                            </div>
+                        </div>
+
+                        <div class="box_image">
+                            <div class="banner">
+                                <a href="" class="banner-hover-effect">
+                                    <img src="~/images/img.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-12" id="content-policy">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+@section Scripts {
+    <script src="~/js/policy/main.js"></script>
+}
