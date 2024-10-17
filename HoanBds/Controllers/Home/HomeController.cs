@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HoanBds.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HoanBds.Controllers.Home
 {
@@ -18,24 +19,17 @@ namespace HoanBds.Controllers.Home
         {
             return View();
         }
-        [Route("san-pham")]
-        [HttpGet]
-        public async Task<IActionResult> Product()
-        {
-            ViewBag.group_product_parent_id = -1;
-            return View("~/Views/Product/GroupProductList.cshtml");
-        }
 
-        [Route("lien-he")]
+        [Route("lien-he-{id}")]
         [HttpGet]
         public async Task<IActionResult> Contact()
         {
             return View();
         }
 
-        [Route("gioi-thieu")]
+        [Route("policy/{path}-{id}")]
         [HttpGet]
-        public async Task<IActionResult> Intro()
+        public async Task<IActionResult> Policy()
         {
             return View();
         }
@@ -87,7 +81,5 @@ namespace HoanBds.Controllers.Home
                 return StatusCode(500); // Trả về lỗi 500 nếu có lỗi
             }
         }
-
-
     }
 }

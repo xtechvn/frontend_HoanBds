@@ -21,6 +21,20 @@ namespace HoanBds.Controllers.Product.Service
             redisService = _redisService;
         }
 
+        public async Task<ProductListResponseModel> ListingByPriceRange(double amount_min, double amout_max, int group_product_id = -1, int page_index = 1, int page_size = 12)
+        {
+            try
+            {
+               var model = await _productDetailMongoAccess.ListingByPriceRange(amount_min,amout_max,group_product_id,page_index,page_size);
+               return model;
+            }
+            catch (Exception ex)
+            {
+                Utilities.LogHelper.InsertLogTelegramByUrl(configuration["log_telegram:Token"], configuration["log_telegram:GroupId"], "ListingByPriceRange " + ex.Message);
+                return null;
+            }
+        }
+
         /// <summary>
         /// Load danh sách menu, category, ngành hàng
         /// </summary>
@@ -64,7 +78,7 @@ namespace HoanBds.Controllers.Product.Service
             }
             catch (Exception ex)
             {
-                Utilities.LogHelper.InsertLogTelegramByUrl(configuration["log_telegram:Token"], configuration["log_telegram:GroupId"], "getListMenuHelp " + ex.Message);
+                Utilities.LogHelper.InsertLogTelegramByUrl(configuration["log_telegram:Token"], configuration["log_telegram:GroupId"], "getProductListByGroupProductId " + ex.Message);
                 return null;
             }
         }

@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Dự án";
+}
+<div class=" main-content-theme">
+
+    <section class="section-parallax section-parallax-breadcrumb bg-top">
+        <div class="overlay-main"></div>
+        <div class="banner-title-outer">
+            <div class="container">
+                <div class="banner-title-name">
+                    <h1 class="text-white nameCate"></h1>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pd5  ">
+                        <ol class="breadcrumb breadcrumb-arrows">
+                            <li>
+                                <a href="/" target="_blank"><span>Trang chủ</span></a>
+                            </li>
+                                <li class="active">
+                                    <span class="nameCate"></span>
+                                </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="collection-body" class="">
+        <section class="flat-row image-box">
+            <div class="container">
+                <div class="row">
+                    <div id="product_filter" class="col-lg-2 col-md-3 col-12">
+                       @* chỗ này load filter *@
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-12" id="list-product-search">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/product/main.js"></script>
+    <script src="~/js/product/product_contants.js"></script>
+}

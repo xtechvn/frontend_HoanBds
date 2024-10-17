@@ -3,6 +3,7 @@ using HoanBds.Models.Products;
 using HoanBds.Service.Redis;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
+using System;
 
 namespace HoanBds.Controllers.Product
 {
@@ -19,6 +20,11 @@ namespace HoanBds.Controllers.Product
             redisService = _redisService;
             productsService=new ProductsService(_configuration, redisService);
             _cache = cache;
+        }
+
+        public IActionResult Index()
+        {
+            return View();
         }
 
         /// <summary>
@@ -51,69 +57,17 @@ namespace HoanBds.Controllers.Product
 
         }
 
-        [HttpGet("nganh-hang/{group_product_name}/{group_product_id}")]
-        public async Task<ActionResult> getListGroupProduct(string group_product_name, int group_product_id)
+        [HttpPost("san-pham/search")]
+        public async Task<ActionResult> getListGroupProduct(int _group_product_id, int? pricecode,int _page_index, int? districtcode,int? typecode,int _page_size, string view_name)
         {
             try
             {                
-
-                ViewBag.group_product_parent_id = group_product_id;
-                return View("~/Views/Product/GroupProductList.cshtml");
+                return ViewComponent("ProductSearchList", new { _group_product_id, pricecode, _page_index, districtcode, typecode, _page_size, view_name });
             }
             catch (Exception ex)
             {
                 return StatusCode(500); // Trả về lỗi 500 nếu có lỗi                
             }
         }
-      
-       
-        /// <summary>
-        /// Load các biến thể
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        public async Task<IActionResult> GetProductDetail(ProductDetailRequestModel request)
-        {
-            if (request != null)
-            {
-                // Nếu không có trong cache, gọi dịch vụ
-                var cacheKey = "product_detail_" + request.id; // Đặt khóa cho cache
-                if (!_cache.TryGetValue(cacheKey, out var cached_view)) // Kiểm tra xem có trong cache không
-                {
-                    cached_view = await productsService.GetProductDetail(request.id);
-                    if (cached_view != null)
-                    {
-                        // Lưu vào cache với thời gian hết hạn 
-                        _cache.Set(cacheKey, cached_view, TimeSpan.FromSeconds(20));
-                    }
-                }
-
-                return Ok(new
-                {
-                    is_success = cached_view != null,
-                    data = cached_view
-                });
-            }
-            else
-            {
-                return Ok(new
-                {
-                    is_success = false,
-                    data = ""
-                });
-            }
-        }
-
-        [HttpGet("/san-pham/tim-kiem")]
-        public async Task<IActionResult> search(string p)
-        {
-            // Nếu không có trong cache, gọi dịch vụ
-            ViewBag.keyword = string.IsNullOrEmpty(p) ? "": p;
-            var data_result = await productsService.Search(p);
-
-            return View(data_result);
-        }
-
-
     }
 }

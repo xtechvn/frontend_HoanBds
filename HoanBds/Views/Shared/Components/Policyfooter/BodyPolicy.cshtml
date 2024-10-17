@@ -1,0 +1,33 @@
+﻿@using HoanBds.ViewModels;
+@using HoanBds.Utilities;
+
+@model ArticleViewModel
+@{
+    if (Model != null)
+    {
+        string forder_name = Model.obj_article_list.First().list_category_name.Split(",").First();
+        <div class="page-wrapper">
+            <div class="heading-page">
+                <h1>@forder_name</h1>
+            </div>
+            <div class="wrapbox-content-page">
+                @{var STT = 1;}
+                @foreach (var item in Model.obj_article_list)
+                {
+                    <h3>@STT.@item.title</h3>
+                    <div class="content-page">
+                        @Html.Raw(item.body)
+                    </div>
+                    STT += 1
+                ;
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="page-wrapper text-center">
+            <h3>chưa có nội dụng!</h3>
+        </div>
+    }
+}

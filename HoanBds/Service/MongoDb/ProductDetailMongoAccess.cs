@@ -89,8 +89,7 @@ namespace HoanBds.Service.MongoDb
                 return null;
             }
         }
-
-        public async Task<ProductListResponseModel> ListingByPriceRange(double amount_min, double amout_max, string keyword = "", int group_product_id = -1, int page_index = 1, int page_size = 12)
+        public async Task<ProductListResponseModel> ListingByPriceRange(double amount_min, double amout_max, int group_product_id = -1, int page_index = 1, int page_size = 12)
         {
             try
             {
@@ -100,32 +99,35 @@ namespace HoanBds.Service.MongoDb
                 {
                     filterDefinition &= Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, group_product_id.ToString());
                 }
-                var priceFilter = Builders<ProductMongoDbModel>.Filter.And(
+                if (amount_min > 0 && amout_max > 0)
+                {
+                    var priceFilter = Builders<ProductMongoDbModel>.Filter.And(
                      Builders<ProductMongoDbModel>.Filter.Gt(p => p.price, 0),              // Price greater than 0
                      Builders<ProductMongoDbModel>.Filter.Gte(p => p.price, amount_min),      // Price greater than or equal to minPrice
                      Builders<ProductMongoDbModel>.Filter.Lte(p => p.price, amout_max)       // Price less than or equal to maxPrice
                 );
 
-                // Condition 2: Amount > 0 and Price is within the range
-                var amountFilter = Builders<ProductMongoDbModel>.Filter.And(
-                    Builders<ProductMongoDbModel>.Filter.Gt(p => p.amount_min, 0),             // Amount greater than 0
-                    Builders<ProductMongoDbModel>.Filter.Gte(p => p.amount_min, amount_min),      // Price greater than or equal to minPrice
-                    Builders<ProductMongoDbModel>.Filter.Lte(p => p.amount_min, amout_max)       // Price less than or equal to maxPrice
-                );
-                filterDefinition &= Builders<ProductMongoDbModel>.Filter.Or(priceFilter, amountFilter);
-
-                filterDefinition &= Builders<ProductMongoDbModel>.Filter.Eq(x => x.parent_product_id, "");
+                    // Condition 2: Amount > 0 and Price is within the range
+                    var amountFilter = Builders<ProductMongoDbModel>.Filter.And(
+                        Builders<ProductMongoDbModel>.Filter.Gt(p => p.amount_min, 0),             // Amount greater than 0
+                        Builders<ProductMongoDbModel>.Filter.Gte(p => p.amount_min, amount_min),      // Price greater than or equal to minPrice
+                        Builders<ProductMongoDbModel>.Filter.Lte(p => p.amount_min, amout_max)       // Price less than or equal to maxPrice
+                    );
+                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Or(priceFilter, amountFilter);
+                }
                 var sort_filter = Builders<ProductMongoDbModel>.Sort;
                 var sort_filter_definition = sort_filter.Descending(x => x.updated_last);
                 var model = _productDetailCollection.Find(filterDefinition);
-                int count = model.ToList().Count();
+                long count = await model.CountDocumentsAsync();
                 model.Options.Skip = page_index < 1 ? 0 : (page_index - 1) * page_size;
                 model.Options.Limit = page_size;
                 var result = await model.ToListAsync();
                 return new ProductListResponseModel()
                 {
                     items = result,
-                    count = count
+                    count = count,
+                    page_index = page_index,
+                    page_size = page_size
                 };
             }
             catch (Exception ex)
@@ -135,6 +137,7 @@ namespace HoanBds.Service.MongoDb
                 return null;
             }
         }
+
         public async Task<string> DeactiveByParentId(string id)
         {
             try

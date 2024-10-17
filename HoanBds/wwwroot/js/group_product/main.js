@@ -1,4 +1,4 @@
-﻿var total_product = 6; // Tổng số sản phẩm của 1 box
+﻿var total_product = 4; // Tổng số sản phẩm của 1 box
 var group_id_product_NP = 54;// id nhóm sản phẩm box NP
 var group_id_product_CCMN = 54;// id nhóm sản phẩm box CCMN
 
@@ -9,11 +9,17 @@ $(document).ready(function () {
     var take = total_product;
     /*    var div_location_render_data = ".component-product-list";*/
     var location_type = "CATEGORY";
-    group_product.render_product_list_Home(group_id_product_NP, "#list_sp_ccmn_home", view_name, skip, take, location_type);
-    group_product.render_product_list_Home(group_id_product_CCMN, "#list_sp_np_home", view_name, skip, take, location_type);
+    const currentUrl = window.location.href;
+    const hasParams = currentUrl.indexOf('?') !== -1;
+    if (!hasParams)
+    {
+        group_product.render_product_list_Home(group_id_product_NP, "#list_sp_ccmn_home", view_name, skip, take, location_type);
+        group_product.render_product_list_Home(group_id_product_CCMN, "#list_sp_np_home", view_name, skip, take, location_type);
+    }
+    
 })
 
-$(document.body).on('click', '.ajax_action_page', function (e) {
+/*$(document.body).on('click', '.ajax_action_page', function (e) {
 
     var page_index = (parseInt($(this).data("page")) - 1) * total_product;
     //// Sau khi bắn link, lấy giá trị group_id
@@ -26,7 +32,7 @@ $(document.body).on('click', '.ajax_action_page', function (e) {
     var div_location_render_data = ".component-product-list";
     var location_type = "HOME";
     group_product.render_product_list_Home(group_product_id, div_location_render_data, view_name, skip, take, location_type);
-});
+});*/
 
 var lib = {
     // Hàm lấy tham số từ URL

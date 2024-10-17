@@ -1,0 +1,15 @@
+﻿@using HoanBds.ViewModels;
+@using HoanBds.Utilities;
+@model ArticleViewModel
+@foreach (var item in Model.obj_article_list.Take(4))
+{
+    string link = @Html.GetStaticUrlNews(item.title, item.id);
+    <div class="item-article clearfix">
+        <div class="number"></div>
+        <div class="post-content">
+            <span class="cate-blog"><a href="">Tin tức</a></span>
+            <h3><a href="@link">@item.title</a></h3>
+        </div>
+    </div>
+}
+

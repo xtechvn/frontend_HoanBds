@@ -13,7 +13,8 @@ namespace HoanBds.Models
         [PropertyName("Lead")]
         public string lead { get; set; }
 
-
+        [PropertyName("Body")]
+        public string body { get; set; }
 
         [PropertyName("Status")]
         public int status { get; set; }
