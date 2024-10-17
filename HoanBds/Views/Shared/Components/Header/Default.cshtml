@@ -26,7 +26,7 @@
                         {
 
                             <li class="">
-                                <a href="@(item.path + "?" + "type=" + i.id)">
+                                <a href="@("/" + item.path + "?" + "type=" + i.id)">
                                     @i.name
                                 </a>
                             </li>
@@ -38,22 +38,22 @@
                 {
                     <ul class="sub_menu">
                         <li class="">
-                            <a href="@(item.path + "?" + "pricecode=1")">
+                            <a href="@("/" + item.path + "?" + "pricecode=1")">
                                 Dưới 10 tỷ
                             </a>
                         </li>
                         <li class="">
-                            <a href="@(item.path + "?" + "pricecode=2")">
+                            <a href="@("/" + item.path + "?" + "pricecode=2")">
                                  10-20 tỷ
                             </a>
                         </li>
                         <li class="">
-                            <a href="@(item.path + "?" + "pricecode=3")">
+                            <a href="@("/" + item.path + "?" + "pricecode=3")">
                                 20 - 30 tỷ
                             </a>
                         </li>
                         <li class="">
-                            <a href="@(item.path + "?" + "pricecode=4")">
+                            <a href="@("/" + item.path + "?" + "pricecode=4")">
                                 Trên 30 tỷ
                             </a>
                         </li>
