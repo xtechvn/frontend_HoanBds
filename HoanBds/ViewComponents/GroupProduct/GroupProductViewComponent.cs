@@ -1,4 +1,5 @@
 ﻿using HoanBds.Controllers.Home.Service;
+using HoanBds.Service.ElasticSearch.GroupProducts;
 using HoanBds.Service.Redis;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
@@ -29,8 +30,8 @@ namespace HoanBds.ViewComponents.GroupProduct
                 var cacheKey = "group_product_" + group_product_parent_id; // Đặt khóa cho cache
                 if (!_cache.TryGetValue(cacheKey, out var cached_data_view)) // Kiểm tra xem có trong cache không
                 {
-                    var objMenu = new MenuService(configuration, _redisService);
-                    cached_data_view = await objMenu.getListMenu(group_product_parent_id); //(Convert.ToInt32(configuration["menu:group_product_parent_id"]));
+                    var objMenu = new GroupProductEsService(configuration["Elastic:Host"], configuration);
+                    cached_data_view = objMenu.GetListGroupProductByParentId(group_product_parent_id); //(Convert.ToInt32(configuration["menu:group_product_parent_id"]));
                     if (cached_data_view != null)
                     {
                         // Lưu vào cache với thời gian hết hạn 60 giây

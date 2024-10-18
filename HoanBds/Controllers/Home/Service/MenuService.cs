@@ -34,7 +34,7 @@ namespace HoanBds.Controllers.Home.Service
                 var response_api = await connect_api_us.CreateHttpRequest("/api/category/get-list.json",input_request);
 
                 // Nhan ket qua tra ve                            
-                var JsonParent = JArray.Parse("[" + response_api + "]");
+                    var JsonParent = JArray.Parse("[" + response_api + "]");
                 int status = Convert.ToInt32(JsonParent[0]["status"]);
 
                 if (status == ((int)ResponseType.SUCCESS))

@@ -12,13 +12,19 @@
 {
     <ul>
         <li class="nav-item @Html.Raw(current_url==""?"active":"")">
-            <a class="nav-link" href="/">Trang chủ</a>
+            <a class="nav-link" href="/">Trang chủ
+            </a>
         </li>
         @foreach (var item in Model)
         {
 
             <li class="@Html.Raw((item.path.IndexOf(current_url) >=0 && current_url!="")  ?"active":"")">
-                <a class="nav-link" href="@("/" + item.path)">@item.name</a>
+                <a class="nav-link" href="@("/" + item.path)">@item.name
+                    @if (GrProduct.Keys.Any(key => key == item.id))
+                    {
+                        <i class="icofont-thin-down"></i>
+                    }
+                </a>
                 @if (item.group_product_child != null && item.group_product_child.Count > 0)
                 {
                     <ul class="sub_menu">

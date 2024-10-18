@@ -6,7 +6,18 @@
 </style>
 
 <div class=" main-content-theme">
-
+    <div class="modal fade" id="NotiModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" style="color:#00BED8">Thông báo</h2>
+                </div>
+                <div class="modal-body">
+                    <h4>Gửi thông tin thành công!</h4>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="section-parallax section-parallax-breadcrumb bg-top">
         <div class="overlay-main"></div>
         <div class="banner-title-outer">
@@ -100,7 +111,7 @@
                                         </div>
 
                                         <div class="col-12">
-                                            <button class="site-button black" onclick="_client_infor.Send()">
+                                            <button class="site-button black" id="btn-send" onclick="_client_infor.Send()">
                                                 <span>
                                                     Gửi cho chúng
                                                     tôi
