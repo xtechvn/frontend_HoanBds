@@ -2,6 +2,7 @@
 {
     Send: function ()
     {
+        $("#btn-send").prop("disabled", true);
         var obj =
         {
             name : $("#name").val(),
@@ -22,6 +23,9 @@
                 "email": {
                     required: true,
                     email: true 
+                },
+                "content": {
+                    required: true,
                 },
             },
             messages: {
@@ -51,7 +55,20 @@
                 url: 'Client/SendClientInfor',
                 data: obj,
                 success: function (data) {
-                    setTimeout(window.location.href = "/", 2000);
+                    $("#NotiModalCenter").addClass('show');
+                    $("#NotiModalCenter").css('display','block');
+                    $("#name").val('');
+                    $("#email").val('');
+                    $("#phone").val('');
+                    $("#content").val('');
+                    setTimeout(
+                        function ()
+                        {
+                            $("#NotiModalCenter").removeClass('show');
+                            $("#NotiModalCenter").css('display', 'none');
+                            $("#btn-send").prop("disabled", false);
+                        }
+                        , 2000);
                 },
                 error: function (xhr, status, error) {
                     console.log("Error: " + error); // Thay đổi từ 'failure' sang 'error'
