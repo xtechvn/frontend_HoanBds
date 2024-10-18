@@ -1,5 +1,13 @@
 ﻿@using HoanBds.Models.Products;
 @using HoanBds.Utilities;
+<style>
+    .description {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>
 @model ProductListResponseModel
 @{
     if (Model != null)
@@ -23,7 +31,7 @@
                                         @item.name
                                     </a>
                                 </h3>
-                                <p>
+                                <p class="description">
                                     @item.description
                                 </p>
                             </div>
