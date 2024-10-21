@@ -48,22 +48,20 @@
         });
 
 
-        if (Form.valid())
-        {
+        if (Form.valid()) {
             $.ajax({
                 type: 'POST',
                 url: 'Client/SendClientInfor',
                 data: obj,
                 success: function (data) {
                     $("#NotiModalCenter").addClass('show');
-                    $("#NotiModalCenter").css('display','block');
+                    $("#NotiModalCenter").css('display', 'block');
                     $("#name").val('');
                     $("#email").val('');
                     $("#phone").val('');
                     $("#content").val('');
                     setTimeout(
-                        function ()
-                        {
+                        function () {
                             $("#NotiModalCenter").removeClass('show');
                             $("#NotiModalCenter").css('display', 'none');
                             $("#btn-send").prop("disabled", false);
@@ -74,6 +72,10 @@
                     console.log("Error: " + error); // Thay đổi từ 'failure' sang 'error'
                 }
             });
+        }
+        else
+        {
+            $("#btn-send").prop("disabled", false);
         }
     }
 }
