@@ -1,4 +1,4 @@
-﻿@using HoanBds.Models;
+@using HoanBds.Models;
 @model List<CategoryModel>
 @{
     string current_url = ViewBag.current_url;
@@ -44,22 +44,22 @@
                 {
                     <ul class="sub_menu">
                         <li class="">
-                            <a href="@(item.path + "?" + "pricecode=1")">
+                            <a href="@("/" + item.path + "?" + "pricecode=1")">
                                 Dưới 10 tỷ
                             </a>
                         </li>
                         <li class="">
-                            <a href="@(item.path + "?" + "pricecode=2")">
+                            <a href="@("/" + item.path + "?" + "pricecode=2")">
                                  10-20 tỷ
                             </a>
                         </li>
                         <li class="">
-                            <a href="@(item.path + "?" + "pricecode=3")">
+                            <a href="@("/" + item.path + "?" + "pricecode=3")">
                                 20 - 30 tỷ
                             </a>
                         </li>
                         <li class="">
-                            <a href="@(item.path + "?" + "pricecode=4")">
+                            <a href="@("/" + item.path + "?" + "pricecode=4")">
                                 Trên 30 tỷ
                             </a>
                         </li>

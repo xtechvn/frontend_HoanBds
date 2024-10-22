@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HoanBds")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cfafcb7579dc496fcf1dff86e3cd283fd256374e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ef7f8ac03c597e4a9d2a95419572d7e8af32108")]
 [assembly: System.Reflection.AssemblyProductAttribute("HoanBds")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HoanBds")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
