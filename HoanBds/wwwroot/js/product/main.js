@@ -48,6 +48,8 @@ $(document).ready(function () {
             typeElement.attr('checked', 'checked');
         }
     }
+
+
     $('input[name="price"]').on('change', function () {
         const selectedValue = $(this).val();
 
@@ -143,7 +145,7 @@ $(document).ready(function () {
         var pageIndex = url_params.get('page') == null ? 1 : url_params.get('page');
 
         if (pageIndex == total_page) {
-
+            $(".expand-products").remove();
         } else {
             const existingPage = newUrl.searchParams.get('page');
 
@@ -189,6 +191,23 @@ var _product =
             data: { _group_product_id: group_product_id, pricecode: pricecode, _page_index: pageIndex, districtcode: districtcode, typecode: typecode, _page_size: take, view_name: "~/Views/Shared/Components/Product/ProductSearchListViewComponent.cshtml" },
             success: function (data) {
                 $("#list-product-search").html(data);
+                var total_item = $(".total_items").val();
+                var total_page = Math.ceil(total_item / 12);
+                if (pageIndex == total_page) {
+                    $(".expand-products").remove();
+                }
+                if (pageIndex >= 2) {
+                    var active_index = (pageIndex - 1) * 12;
+                    var active_item = $('.product_item:eq(' + active_index + ')');
+                    if (active_item.length > 0) {
+                        const offset = active_item.offset().top;
+
+                        // Cuộn đến vị trí đó
+                        $('html, body').animate({
+                            scrollTop: offset
+                        }, 500);
+                    }
+                }
             },
             error: function (xhr, status, error) {
                 console.log("Error: " + error); // Thay đổi từ 'failure' sang 'error'

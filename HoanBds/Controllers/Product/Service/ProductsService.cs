@@ -21,11 +21,11 @@ namespace HoanBds.Controllers.Product.Service
             redisService = _redisService;
         }
 
-        public async Task<ProductListResponseModel> ListingByPriceRange(double amount_min, double amout_max, int group_product_id = -1, int page_index = 1, int page_size = 12)
+        public async Task<ProductListResponseModel> ListingByPriceRange(double amount_min, double amout_max, int group_product_id = -1, int page_index = 1, int page_size = 12,int? DistrictCode = null)
         {
             try
             {
-               var model = await _productDetailMongoAccess.ListingByPriceRange(amount_min,amout_max,group_product_id,page_index,page_size);
+               var model = await _productDetailMongoAccess.ListingByPriceRange(amount_min,amout_max,group_product_id,page_index,page_size,DistrictCode);
                return model;
             }
             catch (Exception ex)

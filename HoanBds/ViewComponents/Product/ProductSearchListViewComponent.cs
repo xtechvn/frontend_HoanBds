@@ -56,7 +56,7 @@ namespace HoanBds.ViewComponents.Product
                     }
                 }
 
-                if (districtcode != null)
+                if (districtcode != null && districtcode != -1)
                 {
                     _group_product_id = districtcode.Value;
                 }
@@ -65,11 +65,11 @@ namespace HoanBds.ViewComponents.Product
                     _group_product_id = typecode.Value;
                 }
                 // Nếu không có trong cache, gọi dịch vụ
-                var cacheKey = "product_list_" + _group_product_id + "_" + _page_index + _page_size + pricecode; // Đặt khóa cho cache
+                var cacheKey = "product_list_" + _group_product_id + "_" + _page_index + _page_size + pricecode + districtcode; // Đặt khóa cho cache
                 if (!_cache.TryGetValue(cacheKey, out var cached_view)) // Kiểm tra xem có trong cache không
                 {
                     var objMenu = new ProductsService(configuration, _redisService);
-                    cached_view = await productsService.ListingByPriceRange(amount_min,amount_max, _group_product_id, 1, _page_size);
+                    cached_view = await productsService.ListingByPriceRange(amount_min,amount_max, _group_product_id, 1, _page_size,districtcode);
                     if (cached_view != null)
                     {
                         // Lưu vào cache với thời gian hết hạn 

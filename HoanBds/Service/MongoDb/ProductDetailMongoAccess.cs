@@ -89,15 +89,21 @@ namespace HoanBds.Service.MongoDb
                 return null;
             }
         }
-        public async Task<ProductListResponseModel> ListingByPriceRange(double amount_min, double amout_max, int group_product_id = -1, int page_index = 1, int page_size = 12)
+        public async Task<ProductListResponseModel> ListingByPriceRange(double amount_min, double amout_max, int group_product_id = -1, int page_index = 1, int page_size = 12,int? districtCode = null)
         {
             try
             {
                 var filter = Builders<ProductMongoDbModel>.Filter;
                 var filterDefinition = filter.Empty;
-                if (group_product_id > 0)
+                filterDefinition &= Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, group_product_id.ToString());
+                if (districtCode < 0)
                 {
-                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, group_product_id.ToString());
+                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Ne(x => x.group_product_id, DistrictCode.Ba_dinh.ToString());
+                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Ne(x => x.group_product_id, DistrictCode.Cau_giay.ToString());
+                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Ne(x => x.group_product_id, DistrictCode.Dong_da.ToString());
+                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Ne(x => x.group_product_id, DistrictCode.Hoan_kiem.ToString());
+                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Ne(x => x.group_product_id, DistrictCode.Thanh_xuan.ToString());
+                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Ne(x => x.group_product_id, DistrictCode.Tu_liem.ToString());
                 }
                 if (amount_min > 0 && amout_max > 0)
                 {
