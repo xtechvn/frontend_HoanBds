@@ -25,22 +25,22 @@
                         <i class="icofont-thin-down"></i>
                     }
                 </a>
-                @if (item.group_product_child != null && item.group_product_child.Count > 0)
+                @if (item.id == 59)
                 {
                     <ul class="sub_menu">
-                        @foreach (var i in item.group_product_child)
-                        {
-
-                            <li class="">
-                                <a href="@(item.path + "?" + "type=" + i.id)">
-                                    @i.name
-                                </a>
-                            </li>
-
-                        }
+                        <li class="">
+                            <a href="@(item.path + "?" + "type=63")">
+                                Đất thổ cư
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="@(item.path + "?" + "type=62")">
+                                Đất dự án
+                            </a>
+                        </li>
                     </ul>
                 }
-                else if (GrProduct.Keys.Any(key => key == item.id))
+                else if (item.id == 57 || item.id == 58)
                 {
                     <ul class="sub_menu">
                         <li class="">

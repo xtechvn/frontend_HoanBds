@@ -2,6 +2,16 @@
 {
     let currentUrl = window.location.href;
     let params = currentUrl.split("-").pop().split(".").shift();
+    $('.tree-menu li a').each(function () {
+        if ($(this).attr('href').split("-").pop().split(".").shift() == params) {
+            $(this).css('font-weight', 'bold');
+        }
+        else
+        {
+            $(this).css('font-weight', 'normal');
+        }
+    });
+    
     policy.getBodyArtical(params);
 })
 

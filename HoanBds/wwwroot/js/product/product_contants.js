@@ -100,7 +100,7 @@ var filter_html =
                                 </li>
                                 <li>
                                     <div class="box-checkbox">
-                                        <input type="checkbox" id="district-6" name="district" class="checkbox">
+                                        <input type="checkbox" value="-1" id="district-6" name="district" class="checkbox">
                                         <label for="district-6"></label>
                                         <span>Khác</span>
                                     </div>

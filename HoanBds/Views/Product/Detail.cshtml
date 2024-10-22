@@ -51,7 +51,10 @@
                             <div class="product-price" id="price-preview">
 
                                 <span class="pro-price">@Model.product_main.label_price</span>
-                                <del>@Model.product_main.discount</del>
+                                @if (Model.product_main.discount != 0)
+                                {
+                                    <del>@Model.product_main.discount</del>
+                                }
                             </div>
 
                         </div>
