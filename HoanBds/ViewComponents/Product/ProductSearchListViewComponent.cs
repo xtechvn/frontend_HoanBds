@@ -49,10 +49,6 @@ namespace HoanBds.ViewComponents.Product
                             amount_min = 30000000000;
                             amount_max = float.MaxValue;
                             break;
-                        default:
-                            amount_min = 30000000001;
-                            amount_max = float.MaxValue;
-                            break;
                     }
                 }
 

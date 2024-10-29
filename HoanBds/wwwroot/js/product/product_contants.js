@@ -1,9 +1,9 @@
 ﻿var product_constant =
 {
     Type: [
-        { id: 57, path: 'nha-pho', name : 'Nhà phố'},
-        { id: 59, path: 'dat' , name : 'Đất'},
-        { id: 58, path: 'ccmn', name : 'Chung cư mini' },
+        { id: 58, path: 'nha-pho', name : 'Nhà phố'},
+        { id: 60, path: 'dat' , name : 'Đất'},
+        { id: 59, path: 'ccmn', name : 'Chung cư mini' },
     ],
 }
 
