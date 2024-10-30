@@ -8,11 +8,11 @@
             @foreach (var item in Model)
             {
 
-                string link = @Html.GetStaticUrlNews(item.name, item.id);
+                string link = @Html.GetStaticUrlNews(item.Name, item.id);
 
                 <li class="">
                     <a href="@("/policy" + link)" title="Tìm kiếm" target="_self">
-                        @Html.Raw(item.name)
+                        @Html.Raw(item.Name)
                     </a>
                 </li>
             }

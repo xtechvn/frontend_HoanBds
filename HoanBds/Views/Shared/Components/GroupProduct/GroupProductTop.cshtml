@@ -12,8 +12,8 @@
                 @foreach (var item in Model)
                 {
                     <div class="swiper-slide">
-                        <a href="@(Html.GetStaticUrlGroupProduct(item.name,item.id))"><img src="@Html.GetStaticImageUrl(item.imagepath, Configuration)" alt="@item.name" /></a>
-                        <h4 class="title">@item.name</h4>
+                        <a href="@(Html.GetStaticUrlGroupProduct(item.Name,item.id))"><img src="@Html.GetStaticImageUrl(item.ImagePath, Configuration)" alt="@item.Name" /></a>
+                        <h4 class="title">@item.Name</h4>
 
                     </div>
                 }

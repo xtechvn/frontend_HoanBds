@@ -1,4 +1,6 @@
-﻿namespace HoanBds.Models
+﻿using Nest;
+
+namespace HoanBds.Models
 {
     public class CategoryModel
     {
@@ -6,33 +8,44 @@
         //public int cate_id { get; set; }
         //public int parent_id { get; set; }
         //public string path { get; set; }
-
+        [PropertyName("id")]
         public int id { get; set; }
 
-        public int parentid { get; set; }
+        [PropertyName("ParentId")]
+        public int ParentId { get; set; }
 
-        public int? positionid { get; set; }
+        [PropertyName("PositionId")]
+        public int? PositionId { get; set; }
 
-        public string name { get; set; } = null!;
+        [PropertyName("Name")]
+        public string Name { get; set; } = null!;
 
-        public string? imagepath { get; set; }
+        [PropertyName("ImagePath")]
+        public string? ImagePath { get; set; }
 
-        public int? orderno { get; set; }
+        [PropertyName("OrderNo")]
+        public int? OrderNo { get; set; }
 
-        public string? path { get; set; }
+        [PropertyName("Path")]
+        public string? Path { get; set; }
 
-        public int? status { get; set; }
+        [PropertyName("Status")]
+        public int? Status { get; set; }
 
-        public DateTime? createdon { get; set; }
+        [PropertyName("CreatedOn")]
+        public DateTime? CreatedOn { get; set; }
 
-        public DateTime? modifiedon { get; set; }
+        [PropertyName("ModifiedOn")]
+        public DateTime? ModifiedOn { get; set; }
 
+        [PropertyName("Description")]
+        public string? Description { get; set; }
 
-        public string? description { get; set; }
+        [PropertyName("IsShowHeader")]
+        public bool IsShowHeader { get; set; }
 
-        public bool isshowheader { get; set; }
-
-        public bool isshowfooter { get; set; }
+        [PropertyName("IsShowFooter")]
+        public bool IsShowFooter { get; set; }
         public List<CategoryModel> group_product_child { get; set; }
 
     }

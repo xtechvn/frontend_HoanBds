@@ -54,8 +54,8 @@ namespace HoanBds.Service.ElasticSearch.GroupProducts
                     .Query(q => q
                         .Bool(b => b
                             .Must(
-                                m => m.Term(t => t.Field("status").Value(ArticleStatus.PUBLISH.ToString())),
-                                m => m.Term(t => t.Field("parentid").Value(parent_id))
+                                m => m.Term(t => t.Field("Status").Value(ArticleStatus.PUBLISH.ToString())),
+                                m => m.Term(t => t.Field("ParentId").Value(parent_id))
                             )
                         )
                     )
