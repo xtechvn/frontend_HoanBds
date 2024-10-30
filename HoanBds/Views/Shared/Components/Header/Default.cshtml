@@ -1,4 +1,5 @@
 @using HoanBds.Models;
+@using HoanBds.Utilities
 @model List<CategoryModel>
 @{
     string current_url = ViewBag.current_url;
@@ -19,9 +20,15 @@
     {
         @foreach (var item in Model)
         {
+            string link = @Html.GetStaticUrlNews(item.Name, item.id);
 
+            // Tìm vị trí của dấu chấm cuối cùng
+            int lastDotIndex = link.LastIndexOf('.');
+
+            // Lấy phần chuỗi trước dấu chấm cuối cùng
+            string result = link.Substring(0, lastDotIndex);
             <li class="@Html.Raw((item.Path.IndexOf(current_url) >=0 && current_url!="")  ?"active":"")">
-                <a class="nav-link" href="@("/" + item.Path)">
+                <a class="nav-link" href="@result">
                     @item.Name
                     @if (GrProduct.Keys.Any(key => key == item.id))
                     {
@@ -32,12 +39,12 @@
                 {
                     <ul class="sub_menu">
                         <li class="">
-                            <a href="@("/" +item.Path + "?" + "type=63")">
+                            <a href="@("/" + result + "?" + "type=63")">
                                 Đất thổ cư
                             </a>
                         </li>
                         <li class="">
-                            <a href="@("/" +item.Path + "?" + "type=62")">
+                            <a href="@("/" + result + "?" + "type=62")">
                                 Đất dự án
                             </a>
                         </li>
@@ -47,22 +54,22 @@
                 {
                     <ul class="sub_menu">
                         <li class="">
-                            <a href="@("/" + item.Path + "?" + "pricecode=1")">
+                            <a href="@("/" + result + "?" + "pricecode=1")">
                                 Dưới 10 tỷ
                             </a>
                         </li>
                         <li class="">
-                            <a href="@("/" + item.Path + "?" + "pricecode=2")">
+                            <a href="@("/" + result + "?" + "pricecode=2")">
                                 10-20 tỷ
                             </a>
                         </li>
                         <li class="">
-                            <a href="@("/" + item.Path + "?" + "pricecode=3")">
+                            <a href="@("/" + result + "?" + "pricecode=3")">
                                 20 - 30 tỷ
                             </a>
                         </li>
                         <li class="">
-                            <a href="@("/" + item.Path + "?" + "pricecode=4")">
+                            <a href="@("/" + result + "?" + "pricecode=4")">
                                 Trên 30 tỷ
                             </a>
                         </li>
