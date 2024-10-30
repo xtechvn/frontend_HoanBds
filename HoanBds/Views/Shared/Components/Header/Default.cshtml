@@ -8,18 +8,21 @@
     GrProduct.Add(59, "CCMN");
     GrProduct.Add(60,"Đất");
 }
-@if (Model != null)
-{
-    <ul>
-        <li class="nav-item @Html.Raw(current_url==""?"active":"")">
-            <a class="nav-link" href="/">Trang chủ
-            </a>
-        </li>
+
+<ul>
+    <li class="nav-item @Html.Raw(current_url==""?"active":"")">
+        <a class="nav-link" href="/">
+            Trang chủ
+        </a>
+    </li>
+    @if (Model != null)
+    {
         @foreach (var item in Model)
         {
 
             <li class="@Html.Raw((item.path.IndexOf(current_url) >=0 && current_url!="")  ?"active":"")">
-                <a class="nav-link" href="@("/" + item.path)">@item.name
+                <a class="nav-link" href="@("/" + item.path)">
+                    @item.name
                     @if (GrProduct.Keys.Any(key => key == item.id))
                     {
                         <i class="icofont-thin-down"></i>
@@ -50,7 +53,7 @@
                         </li>
                         <li class="">
                             <a href="@("/" + item.path + "?" + "pricecode=2")">
-                                 10-20 tỷ
+                                10-20 tỷ
                             </a>
                         </li>
                         <li class="">
@@ -67,6 +70,9 @@
                 }
             </li>
         }
-    </ul>
+    }
+</ul>
+@section Scripts {
     <script src="~/js/common.js"></script>
 }
+

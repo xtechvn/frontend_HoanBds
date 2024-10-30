@@ -2,23 +2,25 @@
 @using HoanBds.ViewModels;
 @model List<CategoryModel>
 @{
-    if (Model != null)
-    {
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg">
-            <div class="footer-col footer-link">
-                <h4 class="footer-title">
-                    PHÁP LÍ & CÂU HỎI
-                </h4>
-                <div class="footer-content toggle-footer">
-                    <ul>
+
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg">
+        <div class="footer-col footer-link">
+            <h4 class="footer-title">
+                PHÁP LÍ & CÂU HỎI
+            </h4>
+            <div class="footer-content toggle-footer">
+                <ul>
+                    @if (Model != null)
+                    {
                         @foreach (var item in Model)
                         {
                             string link = @Html.GetStaticUrlNews(item.name, item.id);
                             <li class="item"><a href="@("/policy" + link)">@Html.Raw(item.name)</a></li>
                         }
-                    </ul>
-                </div>
+                    }
+                </ul>
             </div>
         </div>
-    }
+    </div>
+
 }
