@@ -70,13 +70,13 @@ namespace HoanBds.Service.ElasticSearch.GroupProducts
                 else
                 {
                     // Ghi log nếu truy vấn không thành công
-                    LogHelper.InsertLogTelegramByUrl(configuration["telegram:token"], configuration["telegram:group_id"], "Query Invalid: " + query.DebugInformation);
+                    LogHelper.InsertLogTelegramByUrl(configuration["log_telegram:token"], configuration["log_telegram:group_id"], "Query Invalid: " + query.DebugInformation);
                 }
             }
             catch (Exception ex)
             {
                 string error_msg = Assembly.GetExecutingAssembly().GetName().Name + "->" + MethodBase.GetCurrentMethod().Name + "=>" + ex.Message;
-                LogHelper.InsertLogTelegramByUrl(configuration["telegram:token"], configuration["telegram:group_id"], error_msg);
+                LogHelper.InsertLogTelegramByUrl(configuration["log_telegram:token"], configuration["log_telegram:group_id"], error_msg);
             }
 
             return null;
