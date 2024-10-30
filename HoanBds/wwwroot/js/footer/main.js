@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-
+    //No Message
     footer.bin_data();
 })
 
