@@ -121,7 +121,7 @@ namespace HoanBds
             {
                 endpoints.MapControllerRoute(
                     name: "san-pham",
-                    pattern: "/dat",
+                    pattern: "/dat-{id}",
                     defaults: new { controller = "Product", action = "Index" });
             });
         }
