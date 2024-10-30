@@ -2,11 +2,11 @@
 {
     public enum DistrictCode
     {
-        Ba_dinh = 87,
-        Hoan_kiem = 83,
-        Cau_giay = 88,
-        Dong_da = 84,
-        Thanh_xuan = 85,
-        Tu_liem = 86
+        Ba_dinh = 67,
+        Hoan_kiem = 63,
+        Cau_giay = 68,
+        Dong_da = 64,
+        Thanh_xuan = 65,
+        Tu_liem = 66
     }
 }
