@@ -168,16 +168,16 @@ var _product =
     LoadFilter: function (id)
     {
         $("#product_filter").html('');
-        if (id == 57) // Nhà phố
+        if (id == 58) // Nhà phố
         {
             $("#product_filter").append(filter_html.price);
         }
-        else if (id == 58) // CCMN
+        else if (id == 59) // CCMN
         {
             $("#product_filter").append(filter_html.price);
             $("#product_filter").append(filter_html.district);
         }
-        else if (id == 59)
+        else if (id == 60)
         {
             $("#product_filter").append(filter_html.type);
         }
