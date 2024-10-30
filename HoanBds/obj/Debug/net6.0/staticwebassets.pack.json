@@ -1,0 +1,397 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\HoanBds.bundle.scp.css",
+      "PackagePath": "staticwebassets\\HoanBds.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\app\\page\\chitiet-duan.html",
+      "PackagePath": "staticwebassets\\app\\page\\chitiet-duan.html"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\app\\page\\chitiet-tintuc.html",
+      "PackagePath": "staticwebassets\\app\\page\\chitiet-tintuc.html"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\app\\page\\dieu-khoan-dich-vu.html",
+      "PackagePath": "staticwebassets\\app\\page\\dieu-khoan-dich-vu.html"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\app\\page\\du-an.html",
+      "PackagePath": "staticwebassets\\app\\page\\du-an.html"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\app\\page\\home.html",
+      "PackagePath": "staticwebassets\\app\\page\\home.html"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\app\\page\\lien-he.html",
+      "PackagePath": "staticwebassets\\app\\page\\lien-he.html"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\app\\page\\tin-tuc.html",
+      "PackagePath": "staticwebassets\\app\\page\\tin-tuc.html"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\app\\template\\main.html",
+      "PackagePath": "staticwebassets\\app\\template\\main.html"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\animate.css",
+      "PackagePath": "staticwebassets\\css\\animate.css"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\images\\banner-page.png",
+      "PackagePath": "staticwebassets\\css\\images\\banner-page.png"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\images\\banner_breadcrumb.jpg",
+      "PackagePath": "staticwebassets\\css\\images\\banner_breadcrumb.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\images\\bg-contact.jpg",
+      "PackagePath": "staticwebassets\\css\\images\\bg-contact.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\images\\bg-des.jpg",
+      "PackagePath": "staticwebassets\\css\\images\\bg-des.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\images\\bkg-banner-section.png",
+      "PackagePath": "staticwebassets\\css\\images\\bkg-banner-section.png"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\images\\email.png",
+      "PackagePath": "staticwebassets\\css\\images\\email.png"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\images\\h-prl-one_bg.jpg",
+      "PackagePath": "staticwebassets\\css\\images\\h-prl-one_bg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\images\\icon_email_footer.png",
+      "PackagePath": "staticwebassets\\css\\images\\icon_email_footer.png"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\images\\iconsearch1bce.png",
+      "PackagePath": "staticwebassets\\css\\images\\iconsearch1bce.png"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\images\\p-service_parallax_bg1bce.jpg",
+      "PackagePath": "staticwebassets\\css\\images\\p-service_parallax_bg1bce.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\images\\pass.png",
+      "PackagePath": "staticwebassets\\css\\images\\pass.png"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\images\\popup_contact_bkg1bce.jpg",
+      "PackagePath": "staticwebassets\\css\\images\\popup_contact_bkg1bce.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\images\\userico.png",
+      "PackagePath": "staticwebassets\\css\\images\\userico.png"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\jquery-ui.css",
+      "PackagePath": "staticwebassets\\css\\jquery-ui.css"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\main.css",
+      "PackagePath": "staticwebassets\\css\\main.css"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\maps\\main.css.map",
+      "PackagePath": "staticwebassets\\css\\maps\\main.css.map"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\maps\\swiper-vars.css.map",
+      "PackagePath": "staticwebassets\\css\\maps\\swiper-vars.css.map"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\css\\owl.carousel.min.css"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\scss\\_footer.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\_footer.scss"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\scss\\_header.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\_header.scss"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\scss\\_icon.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\_icon.scss"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\scss\\_reset.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\_reset.scss"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\scss\\_responsive.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\_responsive.scss"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\scss\\_swiper.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\_swiper.scss"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\scss\\_theme.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\_theme.scss"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\scss\\main.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\main.scss"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\scss\\style.css",
+      "PackagePath": "staticwebassets\\css\\scss\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\scss\\swiper-vars.css",
+      "PackagePath": "staticwebassets\\css\\scss\\swiper-vars.css"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\scss\\swiper-vars.css.map",
+      "PackagePath": "staticwebassets\\css\\scss\\swiper-vars.css.map"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\scss\\swiper-vars.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\swiper-vars.scss"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\swiper-bundle.min.css",
+      "PackagePath": "staticwebassets\\css\\swiper-bundle.min.css"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\css\\swiper-vars.css",
+      "PackagePath": "staticwebassets\\css\\swiper-vars.css"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\icofont\\demo.html",
+      "PackagePath": "staticwebassets\\icofont\\demo.html"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\icofont\\fonts\\icofont.eot",
+      "PackagePath": "staticwebassets\\icofont\\fonts\\icofont.eot"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\icofont\\fonts\\icofont.svg",
+      "PackagePath": "staticwebassets\\icofont\\fonts\\icofont.svg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\icofont\\fonts\\icofont.ttf",
+      "PackagePath": "staticwebassets\\icofont\\fonts\\icofont.ttf"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\icofont\\fonts\\icofont.woff",
+      "PackagePath": "staticwebassets\\icofont\\fonts\\icofont.woff"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\icofont\\fonts\\icofont.woff2",
+      "PackagePath": "staticwebassets\\icofont\\fonts\\icofont.woff2"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\icofont\\icofont.css",
+      "PackagePath": "staticwebassets\\icofont\\icofont.css"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\icofont\\icofont.min.css",
+      "PackagePath": "staticwebassets\\icofont\\icofont.min.css"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\collection_banner1bce.jpg",
+      "PackagePath": "staticwebassets\\images\\collection_banner1bce.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\img.jpg",
+      "PackagePath": "staticwebassets\\images\\img.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\messenger.png",
+      "PackagePath": "staticwebassets\\images\\messenger.png"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\p-about-stories_11bce.jpg",
+      "PackagePath": "staticwebassets\\images\\p-about-stories_11bce.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\p-about-stories_21bce.jpg",
+      "PackagePath": "staticwebassets\\images\\p-about-stories_21bce.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\p-about-stories_31bce.jpg",
+      "PackagePath": "staticwebassets\\images\\p-about-stories_31bce.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\p-about-stories_41bce.jpg",
+      "PackagePath": "staticwebassets\\images\\p-about-stories_41bce.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\p-about-sv_41bce.jpg",
+      "PackagePath": "staticwebassets\\images\\p-about-sv_41bce.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\p-sv-award1bce.jpg",
+      "PackagePath": "staticwebassets\\images\\p-sv-award1bce.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\p-sv-info_11bce.jpg",
+      "PackagePath": "staticwebassets\\images\\p-sv-info_11bce.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\p-sv-info_21bce.jpg",
+      "PackagePath": "staticwebassets\\images\\p-sv-info_21bce.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\p-sv-overview-1-icon1bce.png",
+      "PackagePath": "staticwebassets\\images\\p-sv-overview-1-icon1bce.png"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\p-sv-overview-2-icon1bce.png",
+      "PackagePath": "staticwebassets\\images\\p-sv-overview-2-icon1bce.png"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\p-sv-overview-3-icon1bce.png",
+      "PackagePath": "staticwebassets\\images\\p-sv-overview-3-icon1bce.png"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\p-sv-overview-4-icon1bce.png",
+      "PackagePath": "staticwebassets\\images\\p-sv-overview-4-icon1bce.png"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\p-sv-overview-5-icon1bce.png",
+      "PackagePath": "staticwebassets\\images\\p-sv-overview-5-icon1bce.png"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\p-sv-overview-6-icon1bce.png",
+      "PackagePath": "staticwebassets\\images\\p-sv-overview-6-icon1bce.png"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\p-sv-support_11bce.jpg",
+      "PackagePath": "staticwebassets\\images\\p-sv-support_11bce.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\p-sv-support_21bce.jpg",
+      "PackagePath": "staticwebassets\\images\\p-sv-support_21bce.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\p-sv-support_31bce.jpg",
+      "PackagePath": "staticwebassets\\images\\p-sv-support_31bce.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\phone.png",
+      "PackagePath": "staticwebassets\\images\\phone.png"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\slideshow_11bce.jpg",
+      "PackagePath": "staticwebassets\\images\\slideshow_11bce.jpg"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\images\\zalo.png",
+      "PackagePath": "staticwebassets\\images\\zalo.png"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\common.js",
+      "PackagePath": "staticwebassets\\js\\common.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\footer\\main.js",
+      "PackagePath": "staticwebassets\\js\\footer\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\group_product\\main.js",
+      "PackagePath": "staticwebassets\\js\\group_product\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\header\\main.js",
+      "PackagePath": "staticwebassets\\js\\header\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\jquery-ui.js",
+      "PackagePath": "staticwebassets\\js\\jquery-ui.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\js\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\news\\main.js",
+      "PackagePath": "staticwebassets\\js\\news\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\news\\new_detail.js",
+      "PackagePath": "staticwebassets\\js\\news\\new_detail.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\news_home\\main.js",
+      "PackagePath": "staticwebassets\\js\\news_home\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\js\\owl.carousel.min.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\policy\\main.js",
+      "PackagePath": "staticwebassets\\js\\policy\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\popper.min.js",
+      "PackagePath": "staticwebassets\\js\\popper.min.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\product\\main.js",
+      "PackagePath": "staticwebassets\\js\\product\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\product\\product_contants.js",
+      "PackagePath": "staticwebassets\\js\\product\\product_contants.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\sendclientinfor\\main.js",
+      "PackagePath": "staticwebassets\\js\\sendclientinfor\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\84385\\source\\Repos\\frontend_HoanBds\\HoanBds\\wwwroot\\js\\swiper-bundle.min.js",
+      "PackagePath": "staticwebassets\\js\\swiper-bundle.min.js"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.HoanBds.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.HoanBds.props",
+      "PackagePath": "build\\HoanBds.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.HoanBds.props",
+      "PackagePath": "buildMultiTargeting\\HoanBds.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.HoanBds.props",
+      "PackagePath": "buildTransitive\\HoanBds.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
