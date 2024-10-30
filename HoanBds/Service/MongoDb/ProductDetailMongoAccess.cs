@@ -15,9 +15,14 @@ namespace HoanBds.Service.MongoDb
         public ProductDetailMongoAccess(IConfiguration configuration)
         {
             _configuration = configuration;
-            string url = "mongodb://" + configuration["MongoServer:Host"] + "";
-            var client = new MongoClient("mongodb://" + configuration["MongoServer:Host"] + "");
-            IMongoDatabase db = client.GetDatabase(configuration["MongoServer:catalog_core"]);
+            string url = "mongodb://" + configuration["MongoServer:user"] +
+                 ":" + configuration["MongoServer:pwd"] +
+                 "@" + configuration["MongoServer:Host"] +
+                 ":" + configuration["MongoServer:Port"] +
+                 "/?authSource=" + configuration["MongoServer:catalog"] + "";
+
+            var client = new MongoClient(url);
+            IMongoDatabase db = client.GetDatabase(configuration["MongoServer:catalog"]);
             _productDetailCollection = db.GetCollection<ProductMongoDbModel>("ProductDetail");
         }
 
