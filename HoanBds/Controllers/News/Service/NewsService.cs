@@ -78,7 +78,7 @@ namespace HoanBds.Controllers.News.Service
                 var list_article = new List<CategoryArticleModel>();
                 int total_max_cache = 100; // số bản ghi tối đa để cache                    
 
-                string cache_name = Contants.CacheType.ARTICLE_CATEGORY_ID + category_id;
+                string cache_name = Contants.CacheType.ARTICLE_CATEGORY_ID + category_id + skip + top;
                 var j_data = await redisService.GetAsync(cache_name, node_redis);
 
                 // Kiểm tra có trong cache không ?
