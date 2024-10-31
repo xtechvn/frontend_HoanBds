@@ -4,7 +4,7 @@ namespace HoanBds.Models
 {
     public class ArticleModel
     {
-        [PropertyName("Id")]
+        [PropertyName("id")]
         public long id { get; set; }
         public string category_name { get; set; }
         [PropertyName("Title")]
