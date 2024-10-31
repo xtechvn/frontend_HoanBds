@@ -126,9 +126,7 @@ namespace HoanBds.Service.ElasticSearch.News
                 if (search_response.IsValid)
                 {
                     data = search_response.Documents.ToList();
-                    LogHelper.InsertLogTelegramByUrl(configuration["log_telegram:token"], configuration["log_telegram:group_id"], JsonConvert.SerializeObject(data.First()));
                 }
-                LogHelper.InsertLogTelegramByUrl(configuration["log_telegram:token"], configuration["log_telegram:group_id"], "Fail" + category_id + top);
                 return data;
             }
             catch (Exception ex)
