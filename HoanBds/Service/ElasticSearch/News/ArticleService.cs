@@ -2,6 +2,7 @@
 using HoanBds.Models;
 using HoanBds.Utilities;
 using Nest;
+using Newtonsoft.Json;
 using System.Reflection;
 
 namespace HoanBds.Service.ElasticSearch.News
@@ -125,8 +126,9 @@ namespace HoanBds.Service.ElasticSearch.News
                 if (search_response.IsValid)
                 {
                     data = search_response.Documents.ToList();
+                    LogHelper.InsertLogTelegramByUrl(configuration["telegram:token"], configuration["telegram:group_id"], JsonConvert.SerializeObject(data.First()));
                 }
-
+                LogHelper.InsertLogTelegramByUrl(configuration["telegram:token"], configuration["telegram:group_id"], "Fail" + category_id + top);
                 return data;
             }
             catch (Exception ex)
