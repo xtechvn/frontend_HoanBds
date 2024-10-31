@@ -25,7 +25,7 @@ $(document.body).on('click', '.expand-news', function (e) {
     {
         
         pageIndex = parseInt(pageIndex) + 1;
-        window.location.href = '/tin-tuc-60?page=' + pageIndex;
+        window.location.href = '/tin-tuc-61?page=' + pageIndex;
     }
 });
 
