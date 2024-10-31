@@ -118,14 +118,14 @@ var filter_html =
                             <ul class="sidebar-filter">
                                 <li>
                                     <div class="box-checkbox">
-                                        <input type="checkbox" value="63" id="type-1" name="type" class="checkbox">
+                                        <input type="checkbox" value="70" id="type-1" name="type" class="checkbox">
                                         <label for="type-1"></label>
                                         <span>Đất thổ cư</span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="box-checkbox">
-                                        <input type="checkbox" value="62" id="type-2" name="type" class="checkbox">
+                                        <input type="checkbox" value="69" id="type-2" name="type" class="checkbox">
                                         <label for="type-2"></label>
                                         <span>Đất dự án</span>
                                     </div>
