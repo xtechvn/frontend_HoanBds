@@ -105,7 +105,7 @@ namespace HoanBds.Service.ElasticSearch.News
                 {
                     search_response = elasticClient.Search<CategoryArticleModel>(s => s
                         .Size(top)
-                        .Index(configuration["Elastic:Index:SpGetArticle"])  // Chỉ mục muốn tìm kiếm
+                        .Index(index)  // Chỉ mục muốn tìm kiếm
                         .Sort(sort => sort
                             .Descending(f => f.publish_date)
                         )
@@ -159,7 +159,7 @@ namespace HoanBds.Service.ElasticSearch.News
                 if (category_id > 0)
                 {
                     var countResponse = elasticClient.Count<CategoryArticleModel>(c => c
-                    .Index(configuration["Elastic:Index:SpGetArticle"])  // Chỉ mục bạn muốn tìm kiếm
+                    .Index(index)  // Chỉ mục bạn muốn tìm kiếm
                     .Query(q => q
                         .Term(t => t.Field("categoryid").Value(category_id))  // Tìm theo category_id
                     ));
