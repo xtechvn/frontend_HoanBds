@@ -126,15 +126,15 @@ namespace HoanBds.Service.ElasticSearch.News
                 if (search_response.IsValid)
                 {
                     data = search_response.Documents.ToList();
-                    LogHelper.InsertLogTelegramByUrl(configuration["telegram:token"], configuration["telegram:group_id"], JsonConvert.SerializeObject(data.First()));
+                    LogHelper.InsertLogTelegramByUrl(configuration["log_telegram:token"], configuration["log_telegram:group_id"], JsonConvert.SerializeObject(data.First()));
                 }
-                LogHelper.InsertLogTelegramByUrl(configuration["telegram:token"], configuration["telegram:group_id"], "Fail" + category_id + top);
+                LogHelper.InsertLogTelegramByUrl(configuration["log_telegram:token"], configuration["log_telegram:group_id"], "Fail" + category_id + top);
                 return data;
             }
             catch (Exception ex)
             {
                 string error_msg = Assembly.GetExecutingAssembly().GetName().Name + "->" + MethodBase.GetCurrentMethod().Name + "=>" + ex.Message;
-                LogHelper.InsertLogTelegramByUrl(configuration["telegram:token"], configuration["telegram:group_id"], error_msg);
+                LogHelper.InsertLogTelegramByUrl(configuration["log_telegram:token"], configuration["log_telegram:group_id"], error_msg);
                 return data;
             }
         }
