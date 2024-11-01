@@ -107,9 +107,9 @@ namespace HoanBds.Service.MongoDb
                 {
                     filterDefinition &= 
                     Builders<ProductMongoDbModel>.Filter.Not(
-                        Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, "67")
+                        Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, ((int)DistrictCode.Ba_dinh).ToString())
                         );
-                    LogHelper.InsertLogTelegramByUrl(_configuration["BotSetting:bot_token"], _configuration["BotSetting:bot_group_id"], districtCode.ToString() + group_product_id);
+                    LogHelper.InsertLogTelegramByUrl(_configuration["BotSetting:bot_token"], _configuration["BotSetting:bot_group_id"], districtCode.ToString() + group_product_id + DistrictCode.Ba_dinh.ToString());
                 }
                 if (amount_min > 0 && amout_max > 0)
                 {
