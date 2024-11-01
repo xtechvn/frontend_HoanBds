@@ -50,7 +50,7 @@
                         <div class="product-options">
                             <div class="product-price" id="price-preview">
 
-                                <span class="pro-price">@Model.product_main.label_price</span>
+                                <span class="pro-price">@(Model.product_main.label_price + " " + "đ")</span>
                                 @if (Model.product_main.discount != 0)
                                 {
                                     <del>@Model.product_main.discount</del>

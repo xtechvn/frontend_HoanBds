@@ -26,7 +26,6 @@ namespace HoanBds.Controllers.Product.Service
             try
             {
                 var model = await _productDetailMongoAccess.ListingByPriceRange(amount_min,amout_max,group_product_id,page_index,page_size,DistrictCode);
-                Utilities.LogHelper.InsertLogTelegramByUrl(configuration["BotSetting:bot_token"], configuration["BotSetting:bot_group_id"], "ListingByPriceRange " + JsonConvert.SerializeObject(model.items.FirstOrDefault()) );
                 return model;
             }
             catch (Exception ex)
