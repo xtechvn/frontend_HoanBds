@@ -35,18 +35,18 @@ namespace HoanBds.ViewComponents.Product
                     {
                         case 1: 
                             amount_min = 1;
-                            amount_max = 9999999999;
+                            amount_max = 10000000000;
                             break;
                         case 2:
-                            amount_min = 10000000001;
+                            amount_min = 10000000000;
                             amount_max = 20000000000;
                             break;
                         case 3:
-                            amount_min = 20000000001;
+                            amount_min = 20000000000;
                             amount_max = 30000000000;
                             break;
                         case 4:
-                            amount_min = 30000000001;
+                            amount_min = 30000000000;
                             amount_max = float.MaxValue;
                             break;
                     }
