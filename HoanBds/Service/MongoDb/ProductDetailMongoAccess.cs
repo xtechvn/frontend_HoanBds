@@ -101,7 +101,7 @@ namespace HoanBds.Service.MongoDb
                 var filter = Builders<ProductMongoDbModel>.Filter;
                 var filterDefinition = filter.Empty;
                 filterDefinition &= Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, group_product_id.ToString());
-                if (districtCode < 0)
+                if (group_product_id < 0)
                 {
                     filterDefinition &= Builders<ProductMongoDbModel>.Filter.Ne(x => x.group_product_id, DistrictCode.Ba_dinh.ToString());
                     filterDefinition &= Builders<ProductMongoDbModel>.Filter.Ne(x => x.group_product_id, DistrictCode.Cau_giay.ToString());
