@@ -1,6 +1,6 @@
 ﻿var total_product = 4; // Tổng số sản phẩm của 1 box
-var group_id_product_NP = 54;// id nhóm sản phẩm box NP
-var group_id_product_CCMN = 54;// id nhóm sản phẩm box CCMN
+var group_id_product_NP = 58;// id nhóm sản phẩm box NP
+var group_id_product_CCMN = 59;// id nhóm sản phẩm box CCMN
 
 $(document).ready(function () {
     // Page load render data by group product id
