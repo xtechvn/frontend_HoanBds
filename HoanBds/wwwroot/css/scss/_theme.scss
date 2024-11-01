@@ -121,7 +121,7 @@
 }
 /*----- Hiline Title -----*/
 .hilite-title{position: relative;	border:0px;	padding: 0 20px;margin: 20px 0;text-transform: uppercase;}
-.hilite-title strong{display:block;font-size:70px;line-height: 1.2;font-weight:bold;color:rgba(191,191,191,0.3);}
+.hilite-title strong{display:block;font-size:70px;line-height: 1.2;font-weight:bold;color:rgba(39, 39, 39, 0.4);}
 .hilite-title span{display:block;line-height:1.5;text-transform: uppercase;font-weight: bold;}
 .hilite-title.bdr-left{border-left:10px solid #00bed8;}
 .hilite-title.bdr-right{border-right:10px solid #00bed8;}
@@ -153,14 +153,24 @@
     padding: 90px 0;
 }
 .section-parallax {
+	.box-send-contact .site-button span{
+		font-size: 14px;
+		margin: 0;
+		line-height: inherit;
+	}
 	.box-send-contact .contact-form .input-group input,
 	.box-send-contact .contact-form .input-group textarea{
 		border-radius: 4px;
 		color: #fff;
 		border: 1px solid  rgba(255, 255, 255, 0.60);
 		background: rgba(0, 0, 0, 0.60);
+		&::placeholder{
+			opacity: 0.9;
+			color: #fff;
+		}
 	}
 	background-image: url(images/bg-des.jpg); background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover;position: relative;overflow: hidden;}
+	
 .section-parallax.prl-one {background-image: url(images/bg-contact.jpg); background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover;position: relative;overflow: hidden;}
 .section-parallax:before {content:"";position: absolute;top:0;bottom: 0;right:0;left:0;width:100%;height: 100%;	background: #000;opacity: 0.4;}
 .section.section-parallax h2 {margin-bottom:0;text-transform: inherit;font-size: 25px;line-height: 1.5;}
@@ -185,7 +195,20 @@
 		margin: 0;	
 	}
 }
-.box-service .img-service {margin-bottom: 20px;position: relative;overflow: hidden;}
+.box-service .img-service {margin-bottom: 20px;
+	border-radius: 4px; position: relative;overflow: hidden;
+	padding-bottom: 67%;
+	img{
+		object-fit: cover;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
 .box-service .img-service:before {
 	content:"";
 	position: absolute;
@@ -420,7 +443,21 @@
 .section.section-project {padding-bottom:0;}
 .gallery-box {overflow: hidden;position: relative;margin-bottom: 30px;}
 .gallery-box a {display: block;}
-.gallery-box a.image-resize picture{display: -webkit-flex;display: flex;-webkit-justify-content: center;justify-content: center;-webkit-align-items: center;align-items: center;height: 100%;}
+.gallery-box a.image-resize {
+	position: relative;
+	padding-bottom: 150%;
+	img{
+		object-fit: cover;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+	}
+	picture{display: -webkit-flex;display: flex;-webkit-justify-content: center;justify-content: center;-webkit-align-items: center;align-items: center;height: 100%;}
+}
 .gallery-box .text-wrap-title h3 {font-size: 16px;font-weight: 700;line-height: 1.5;margin-bottom: 5px;}
 .gallery-box .text-wrap-title .pro-price{color: #fff;font-size: 14px;font-weight: 500;opacity: .9;margin-bottom: 15px;}
 .gallery-box .text-wrap-title .pro-price .pro-price-del{font-size: 12px;margin-left: 4px;}
@@ -447,7 +484,17 @@
 }
 /*----- Section Blog -----*/ 
 .section.section-blog.lazyloaded{background: url(images/bkg-banner-section.png) 50% 0;padding-bottom:0;background-attachment: fixed;}
-.latest-blog-dark-outer {margin-bottom:30px;position: relative;}
+.latest-blog-dark-outer {margin-bottom:30px;position: relative;border-radius: 4px;padding-bottom: 67%;
+img{
+	object-fit: cover;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}}
 .latest-blog-dark-outer a.fade-box{display: block;}
 .latest-blog-dark {padding: 20px 0 0;}
 .latest-blog-dark h3{margin-bottom: 10px;line-height: 1.4;}
@@ -472,7 +519,7 @@
 .banner-title-name {position: relative;}
 .banner-title-name h1, .banner-title-name span {font-size: 50px;line-height: 1.5;font-weight: 600;margin-bottom: 0px;}
 .section.section-about-us {padding-bottom: 130px;
-.s-content{
+	.m-about-containt{
 	border-left: 2px solid #a0a0a0;
     padding: 0 0 0 30px;
 }}
@@ -534,7 +581,18 @@
 .list-news-latest .item-article .post-content {padding-left: 15px;width: 100%;}
 .list-news-latest .item-article .post-content h3 {margin: 5px 0 0;font-size: 14px;line-height: 1.5;}
 .list-news-latest .item-article .post-content span.cate-blog a {font-size: 13px;font-weight: 600;color:#828d91;}
-.wt-post-media {position: relative;overflow: hidden;margin-bottom: 10px;}
+.wt-post-media {position: relative;overflow: hidden;margin-bottom: 10px;
+	padding-bottom: 60%;
+	img{
+		object-fit: cover;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+	}}
 .wt-post-title h3.post-title{margin-bottom: 5px;}
 .wt-post-title h3.post-title a{overflow: hidden;-webkit-line-clamp: 1;-webkit-box-orient: vertical;display: -webkit-box;}
 .wt-post-meta {margin-bottom:5px;}
@@ -569,7 +627,14 @@
 		background: none;
 		color: #00BED8;
 		em{
-			background: #00BED8;
+			background: none;
+			width: 6px;
+			height: 6px;
+			display: inline-block;
+			border-right: 1px solid #007A8A;
+			border-bottom: 1px solid #007A8A;
+			transform: rotate(-45deg);
+			top: 9px;
 		}
 		&:hover{
 			background: none;
@@ -578,11 +643,11 @@
 			}
 		}
 		span, em{
-			color: #00BED8;
+			color: #007A8A;
 			text-transform: none;
 			font-weight: bold;
 			letter-spacing: 0;
-			font-size: 14px;
+			font-size: 16px;
 		}
 		
 	}
@@ -647,6 +712,9 @@
 .description-productdetail table tr td {border-top: none;}
 .description-productdetail table tr td:first-child {color: #ababab;}
 .product-detail-wrapper .product-action a {display: block;margin: 15px 0 25px;text-align: center;font-size: 14px;font-weight: 500;}
+.product-detail-wrapper .product-action .site-button{
+	text-align: left;
+}
 .related-projects {padding: 60px 0 0;}
 .related-projects .s-title h2 {font-size: 24px;line-height: 1.5;text-transform: uppercase;}
 .product-title .title{font-size: 40px;font-weight: 700;line-height: 1.2;margin-bottom: 5px;}
