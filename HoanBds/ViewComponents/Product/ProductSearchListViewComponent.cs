@@ -52,7 +52,7 @@ namespace HoanBds.ViewComponents.Product
                     }
                 }
 
-                if (districtcode != null)
+                if (districtcode != null && districtcode != -1)
                 {
                     _group_product_id = districtcode.Value;
                 }
