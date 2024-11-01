@@ -4,6 +4,7 @@ using HoanBds.Utilities.contants;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Reflection;
+using System.Text.Json.Serialization;
 
 namespace HoanBds.Service.MongoDb
 {
@@ -104,14 +105,17 @@ namespace HoanBds.Service.MongoDb
                
                 if (districtCode < 0)
                 {
-                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, DistrictCode.Ba_dinh.ToString()));
-                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, DistrictCode.Cau_giay.ToString()));
-                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, DistrictCode.Dong_da.ToString()));
-                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, DistrictCode.Hoan_kiem.ToString()));
-                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, DistrictCode.Thanh_xuan.ToString()));
-                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, DistrictCode.Tu_liem.ToString()));
+                    var excludedDistricts = new[] {
+                        DistrictCode.Ba_dinh.ToString(),
+                        DistrictCode.Cau_giay.ToString(),
+                        DistrictCode.Dong_da.ToString(),
+                        DistrictCode.Hoan_kiem.ToString(),
+                        DistrictCode.Thanh_xuan.ToString(),
+                        DistrictCode.Tu_liem.ToString()
+                    };
+                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(
+                         Builders<ProductMongoDbModel>.Filter.In(x => x.group_product_id,excludedDistricts.Select(d => $"{d}")));
                 }
-                LogHelper.InsertLogTelegramByUrl(_configuration["log_telegram:token"], _configuration["log_telegram:group_id"], filterDefinition.ToString());
                 if (amount_min > 0 && amout_max > 0)
                 {
                     var priceFilter = Builders<ProductMongoDbModel>.Filter.And(
