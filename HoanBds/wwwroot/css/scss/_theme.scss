@@ -582,7 +582,11 @@ img{
 .list-news-latest .item-article .post-content h3 {margin: 5px 0 0;font-size: 14px;line-height: 1.5;}
 .list-news-latest .item-article .post-content span.cate-blog a {font-size: 13px;font-weight: 600;color:#828d91;}
 .wt-post-media {position: relative;overflow: hidden;margin-bottom: 10px;
-	padding-bottom: 60%;
+	a{
+		padding-bottom: 60%;
+		position: relative;
+		display: block;
+	}
 	img{
 		object-fit: cover;
 		position: absolute;
