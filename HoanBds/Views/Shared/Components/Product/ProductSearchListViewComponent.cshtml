@@ -12,7 +12,7 @@
     <div class="cbr-gallery row wrapper-project-1">
         @foreach (var item in Model.items)
         {
-            var img_src = item.images.FirstOrDefault();
+            var img_src = item.avatar;
             if (img_src == null || img_src.Trim() == "") img_src = "";
             if (!img_src.Contains(static_domain)
             && !img_src.Contains("data:image")
@@ -24,7 +24,7 @@
                 <div class="gallery-box fade-box product-resize">
                     <div class="overlay">
                         <a href="@link" title="" class="image-resize">
-                            <img src="@item.avatar" alt="@item.name">
+                            <img src="@img_src" alt="@item.name">
                         </a>
                         <div class="hover-effect"></div>
                         <div class="text-wrap-title">
