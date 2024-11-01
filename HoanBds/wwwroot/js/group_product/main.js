@@ -13,8 +13,8 @@ $(document).ready(function () {
     const hasParams = currentUrl.indexOf('?') !== -1;
     if (!hasParams)
     {
-        group_product.render_product_list_Home(group_id_product_NP, "#list_sp_np_home", view_name, skip, take, location_type);
-        group_product.render_product_list_Home(group_id_product_CCMN, "#list_sp_ccmn_home", view_name, skip, take, location_type);
+        group_product.render_product_list_Home(group_id_product_NP, ".list_sp_np_home", view_name, skip, take, location_type);
+        group_product.render_product_list_Home(group_id_product_CCMN, ".list_sp_ccmn_home", view_name, skip, take, location_type);
     }
     
 })
