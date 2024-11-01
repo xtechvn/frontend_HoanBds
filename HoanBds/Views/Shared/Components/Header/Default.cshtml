@@ -27,7 +27,7 @@
 
             // Lấy phần chuỗi trước dấu chấm cuối cùng
             string result = link.Substring(0, lastDotIndex);
-            <li class="@Html.Raw((item.Path.IndexOf(current_url) >=0 && current_url!="")  ?"active":"")">
+            <li class="@Html.Raw((result.IndexOf(current_url) >=0 && current_url!="")  ?"active":"")">
                 <a class="nav-link" href="@result">
                     @item.Name
                     @if (GrProduct.Keys.Any(key => key == item.id))
