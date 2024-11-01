@@ -109,7 +109,26 @@ namespace HoanBds.Service.MongoDb
                     Builders<ProductMongoDbModel>.Filter.Not(
                         Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, ((int)DistrictCode.Ba_dinh).ToString())
                         );
-                    LogHelper.InsertLogTelegramByUrl(_configuration["BotSetting:bot_token"], _configuration["BotSetting:bot_group_id"], districtCode.ToString() + group_product_id + DistrictCode.Ba_dinh.ToString());
+                    filterDefinition &=
+                    Builders<ProductMongoDbModel>.Filter.Not(
+                        Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, ((int)DistrictCode.Thanh_xuan).ToString())
+                        );
+                    filterDefinition &=
+                    Builders<ProductMongoDbModel>.Filter.Not(
+                        Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, ((int)DistrictCode.Dong_da).ToString())
+                        );
+                    filterDefinition &=
+                    Builders<ProductMongoDbModel>.Filter.Not(
+                        Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, ((int)DistrictCode.Cau_giay).ToString())
+                        );
+                    filterDefinition &=
+                    Builders<ProductMongoDbModel>.Filter.Not(
+                        Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, ((int)DistrictCode.Hoan_kiem).ToString())
+                        );
+                    filterDefinition &=
+                    Builders<ProductMongoDbModel>.Filter.Not(
+                        Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, ((int)DistrictCode.Tu_liem).ToString())
+                        );
                 }
                 if (amount_min > 0 && amout_max > 0)
                 {
