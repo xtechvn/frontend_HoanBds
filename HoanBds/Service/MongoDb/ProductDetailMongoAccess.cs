@@ -105,16 +105,10 @@ namespace HoanBds.Service.MongoDb
                
                 if (districtCode < 0)
                 {
-                    var excludedDistricts = new[] {
-                        DistrictCode.Ba_dinh.ToString(),
-                        DistrictCode.Cau_giay.ToString(),
-                        DistrictCode.Dong_da.ToString(),
-                        DistrictCode.Hoan_kiem.ToString(),
-                        DistrictCode.Thanh_xuan.ToString(),
-                        DistrictCode.Tu_liem.ToString()
-                    };
-                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.And(
-                    Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, DistrictCode.Ba_dinh.ToString())));
+                    filterDefinition &= 
+                    Builders<ProductMongoDbModel>.Filter.Not(
+                        Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, "67")
+                        );
                     LogHelper.InsertLogTelegramByUrl(_configuration["BotSetting:bot_token"], _configuration["BotSetting:bot_group_id"], districtCode.ToString() + group_product_id);
                 }
                 if (amount_min > 0 && amout_max > 0)
@@ -123,7 +117,7 @@ namespace HoanBds.Service.MongoDb
                      Builders<ProductMongoDbModel>.Filter.Gt(p => p.price, 0),              // Price greater than 0
                      Builders<ProductMongoDbModel>.Filter.Gte(p => p.price, amount_min),      // Price greater than or equal to minPrice
                      Builders<ProductMongoDbModel>.Filter.Lte(p => p.price, amout_max)       // Price less than or equal to maxPrice
-                );
+                     );
 
                     // Condition 2: Amount > 0 and Price is within the range
                     var amountFilter = Builders<ProductMongoDbModel>.Filter.And(
