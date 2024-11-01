@@ -8,6 +8,9 @@
         overflow: hidden;
     }
 </style>
+@{
+    string static_domain = "https://static-image.adavigo.com";
+}
 @model ProductListResponseModel
 @{
     if (Model != null)
@@ -15,13 +18,20 @@
 
         foreach (var item in Model.items)
         {
+            var img_src = item.avatar;
+            if (img_src == null || img_src.Trim() == "") img_src = "";
+            if (!img_src.Contains(static_domain)
+            && !img_src.Contains("data:image")
+            && !img_src.Contains("http")
+            && !img_src.Contains("base64,"))
+                img_src = static_domain + img_src;
             string link = @Html.GetStaticUrlProduct(item.name, item._id);
             <div class="swiper-slide">
                 <div class="item--service">
                     <div class="box-service zoom-slow">
                         <div class="img-service fade-box">
                             <a href="@link" class="banner-hover-effect">
-                                <img src="@item.avatar" alt="@item.name" />
+                                <img src="@img_src" alt="@item.name" />
                             </a>
                         </div>
                         <div class="desc-service">
