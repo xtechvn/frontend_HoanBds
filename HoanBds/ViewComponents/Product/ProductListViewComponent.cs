@@ -40,7 +40,7 @@ namespace HoanBds.ViewComponents.Product
                         _cache.Set(cacheKey, cached_view, TimeSpan.FromSeconds(20));
                     }
                 }
-                Utilities.LogHelper.InsertLogTelegramByUrl(configuration["log_telegram:Token"], configuration["log_telegram:GroupId"], "ListingByPriceRange " + cached_view.ToString());
+                Utilities.LogHelper.InsertLogTelegramByUrl(configuration["BotSetting:bot_token"], configuration["BotSetting:bot_group_id"], "ListingByPriceRange " + cached_view.ToString());
                 return View(view_name, cached_view);
             }
             catch (Exception)
