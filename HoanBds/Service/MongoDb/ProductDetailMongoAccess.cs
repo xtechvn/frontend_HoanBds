@@ -113,7 +113,7 @@ namespace HoanBds.Service.MongoDb
                         DistrictCode.Thanh_xuan.ToString(),
                         DistrictCode.Tu_liem.ToString()
                     };
-                    filterDefinition = Builders<ProductMongoDbModel>.Filter.And(
+                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.And(
                     Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, DistrictCode.Ba_dinh.ToString())));
                     LogHelper.InsertLogTelegramByUrl(_configuration["BotSetting:bot_token"], _configuration["BotSetting:bot_group_id"], districtCode.ToString() + group_product_id);
                 }
