@@ -58,42 +58,42 @@ var filter_html =
                             <ul class="sidebar-filter">
                                 <li>
                                     <div class="box-checkbox">
-                                        <input type="checkbox" value="87" id="district-1" name="district" class="checkbox">
+                                        <input type="checkbox" value="67" id="district-1" name="district" class="checkbox">
                                         <label for="district-1"></label>
                                         <span>Ba Đình</span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="box-checkbox">
-                                        <input type="checkbox" value="83" id="district-2" name="district" class="checkbox">
+                                        <input type="checkbox" value="63" id="district-2" name="district" class="checkbox">
                                         <label for="district-2"></label>
                                         <span>Hoàn Kiếm</span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="box-checkbox">
-                                        <input type="checkbox" value="88" id="district-2" name="district" class="checkbox">
+                                        <input type="checkbox" value="68" id="district-2" name="district" class="checkbox">
                                         <label for="district-2"></label>
                                         <span>Cầu Giấy</span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="box-checkbox">
-                                        <input type="checkbox" value="84" id="district-3" name="district" class="checkbox">
+                                        <input type="checkbox" value="64" id="district-3" name="district" class="checkbox">
                                         <label for="district-3"></label>
                                         <span>Đống Đa</span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="box-checkbox">
-                                        <input type="checkbox" value="85" id="district-4" name="district" class="checkbox">
+                                        <input type="checkbox" value="65" id="district-4" name="district" class="checkbox">
                                         <label for="district-4"></label>
                                         <span>Thanh Xuân</span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="box-checkbox">
-                                        <input type="checkbox" value="86" id="district-5" name="district" class="checkbox">
+                                        <input type="checkbox" value="66" id="district-5" name="district" class="checkbox">
                                         <label for="district-5"></label>
                                         <span>Từ Liêm</span>
                                     </div>
