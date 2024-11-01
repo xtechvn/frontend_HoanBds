@@ -101,6 +101,7 @@ namespace HoanBds.Service.MongoDb
                 var filter = Builders<ProductMongoDbModel>.Filter;
                 var filterDefinition = filter.Empty;
                 filterDefinition &= Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, group_product_id.ToString());
+               
                 if (districtCode < 0)
                 {
                     filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, DistrictCode.Ba_dinh.ToString()));
@@ -110,6 +111,7 @@ namespace HoanBds.Service.MongoDb
                     filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, DistrictCode.Thanh_xuan.ToString()));
                     filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, DistrictCode.Tu_liem.ToString()));
                 }
+                LogHelper.InsertLogTelegramByUrl(_configuration["log_telegram:token"], _configuration["log_telegram:group_id"], filterDefinition.ToString());
                 if (amount_min > 0 && amout_max > 0)
                 {
                     var priceFilter = Builders<ProductMongoDbModel>.Filter.And(
