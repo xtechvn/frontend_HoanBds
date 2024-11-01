@@ -104,12 +104,12 @@ namespace HoanBds.Service.MongoDb
                 LogHelper.InsertLogTelegramByUrl(_configuration["log_telegram:token"], _configuration["log_telegram:group_id"], districtCode.ToString() + group_product_id.ToString());
                 if (districtCode < 0)
                 {
-                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, $",{DistrictCode.Ba_dinh},"));
-                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, $",{DistrictCode.Cau_giay},"));
-                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, $",{DistrictCode.Dong_da},"));
-                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, $",{DistrictCode.Hoan_kiem},"));
-                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, $",{DistrictCode.Thanh_xuan},"));
-                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, $",{DistrictCode.Tu_liem},"));
+                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, DistrictCode.Ba_dinh.ToString()));
+                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, DistrictCode.Cau_giay.ToString()));
+                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, DistrictCode.Dong_da.ToString()));
+                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, DistrictCode.Hoan_kiem.ToString()));
+                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, DistrictCode.Thanh_xuan.ToString()));
+                    filterDefinition &= Builders<ProductMongoDbModel>.Filter.Not(Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, DistrictCode.Tu_liem.ToString()));
                 }
                 if (amount_min > 0 && amout_max > 0)
                 {
