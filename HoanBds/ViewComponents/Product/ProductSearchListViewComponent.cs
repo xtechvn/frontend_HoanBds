@@ -63,6 +63,7 @@ namespace HoanBds.ViewComponents.Product
                 {
                     _group_product_id = typecode.Value;
                 }
+                LogHelper.InsertLogTelegramByUrl(configuration["BotSetting:bot_token"], configuration["BotSetting:bot_group_id"], amount_min + "-" + amount_max);
                 // Nếu không có trong cache, gọi dịch vụ
                 var cacheKey = "product_list_" + _group_product_id + "_" + _page_index + _page_size + pricecode + districtcode; // Đặt khóa cho cache
                 if (!_cache.TryGetValue(cacheKey, out var cached_view)) // Kiểm tra xem có trong cache không
