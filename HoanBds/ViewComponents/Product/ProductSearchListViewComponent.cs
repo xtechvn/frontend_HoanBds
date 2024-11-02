@@ -30,8 +30,8 @@ namespace HoanBds.ViewComponents.Product
         {
             try
             {
-                float amount_min = 0;
-                float amount_max = 0;
+                long amount_min = 0;
+                long amount_max = 0;
                 if (pricecode != null) 
                 {
                     switch (pricecode) 
@@ -50,7 +50,7 @@ namespace HoanBds.ViewComponents.Product
                             break;
                         case 4:
                             amount_min = 30000000000;
-                            amount_max = float.MaxValue;
+                            amount_max = long.MaxValue;
                             break;
                     }
                 }
@@ -63,7 +63,6 @@ namespace HoanBds.ViewComponents.Product
                 {
                     _group_product_id = typecode.Value;
                 }
-                LogHelper.InsertLogTelegramByUrl(configuration["BotSetting:bot_token"], configuration["BotSetting:bot_group_id"], amount_min + "-" + amount_max);
                 // Nếu không có trong cache, gọi dịch vụ
                 var cacheKey = "product_list_" + _group_product_id + "_" + _page_index + _page_size + pricecode + districtcode; // Đặt khóa cho cache
                 if (!_cache.TryGetValue(cacheKey, out var cached_view)) // Kiểm tra xem có trong cache không
