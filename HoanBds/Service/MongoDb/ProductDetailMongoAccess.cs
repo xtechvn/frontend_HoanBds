@@ -130,7 +130,6 @@ namespace HoanBds.Service.MongoDb
                         Builders<ProductMongoDbModel>.Filter.Regex(x => x.group_product_id, ((int)DistrictCode.Tu_liem).ToString())
                         );
                 }
-                LogHelper.InsertLogTelegramByUrl(_configuration["BotSetting:bot_token"], _configuration["BotSetting:bot_group_id"], amount_min + "-" + amout_max);
                 if (amount_min > 0 && amout_max > 0)
                 {
                     var priceFilter = Builders<ProductMongoDbModel>.Filter.And(
