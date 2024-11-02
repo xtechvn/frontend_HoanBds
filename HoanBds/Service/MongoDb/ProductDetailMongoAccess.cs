@@ -143,7 +143,7 @@ namespace HoanBds.Service.MongoDb
                     var amountFilter = Builders<ProductMongoDbModel>.Filter.And(
                         Builders<ProductMongoDbModel>.Filter.Gt(p => p.amount_min, 0),             // Amount greater than 0
                         Builders<ProductMongoDbModel>.Filter.Gte(p => p.amount_min, amount_min),      // Price greater than or equal to minPrice
-                        Builders<ProductMongoDbModel>.Filter.Lte(p => p.amount_min, amout_max)       // Price less than or equal to maxPrice
+                        Builders<ProductMongoDbModel>.Filter.Lte(p => p.amount_max, amout_max)       // Price less than or equal to maxPrice
                     );
                     filterDefinition &= Builders<ProductMongoDbModel>.Filter.Or(priceFilter, amountFilter);
                 }
