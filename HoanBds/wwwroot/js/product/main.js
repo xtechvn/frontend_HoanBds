@@ -28,7 +28,7 @@ $(document).ready(function () {
     const districtcode = urlParams.get('district');
     const typecode = urlParams.get('type');
     var pageIndex = urlParams.get('page') == null ? 1 : urlParams.get('page');
-    var pageSize = pageIndex == 1 ? 12 : pageIndex * 12;
+    var pageSize = 12;
 
     _product.LoadProduct(id, pricecode, pageIndex, districtcode, typecode, pageSize);
 
@@ -134,9 +134,6 @@ $(document).ready(function () {
     });
 
     $(document.body).on('click', '.expand-products', function (e) {
-        var total_item = $(".total_items").val();
-        var total_page = Math.ceil(total_item / 12);
-
         const newUrl = new URL(currentUrl);
         const query_string = window.location.search;
         // Khởi tạo URLSearchParams để xử lý query string
@@ -144,21 +141,18 @@ $(document).ready(function () {
         // Lấy giá trị của tham số 'page'
         var pageIndex = url_params.get('page') == null ? 1 : url_params.get('page');
 
-        if (pageIndex == total_page) {
-            $(".expand-products").remove();
-        } else {
-            const existingPage = newUrl.searchParams.get('page');
 
-            if (existingPage) {
-                // Nếu đã tồn tại, cập nhật giá trị
-                newUrl.searchParams.set('page', parseInt(pageIndex) + 1);
-            } else {
-                // Nếu chưa tồn tại, thêm mới
-                newUrl.searchParams.append('page', parseInt(pageIndex) + 1);
-            }
-            // Chuyển hướng đến URL mới
-            window.location.href = newUrl.toString();
+        const existingPage = newUrl.searchParams.get('page');
+
+        if (existingPage) {
+            // Nếu đã tồn tại, cập nhật giá trị
+            newUrl.searchParams.set('page', parseInt(pageIndex) + 1);
+        } else {
+            // Nếu chưa tồn tại, thêm mới
+            newUrl.searchParams.append('page', parseInt(pageIndex) + 1);
         }
+        // Chuyển hướng đến URL mới
+        window.location.href = newUrl.toString();
     });
 })
 
@@ -190,13 +184,13 @@ var _product =
             url: '/san-pham/search',
             data: { _group_product_id: group_product_id, pricecode: pricecode, _page_index: pageIndex, districtcode: districtcode, typecode: typecode, _page_size: take, view_name: "~/Views/Shared/Components/Product/ProductSearchListViewComponent.cshtml" },
             success: function (data) {
-                $("#list-product-search").html(data);
-                var total_item = $(".total_items").val();
+                $("#list-product-search").append(data);
+                /*var total_item = $(".total_items").val();
                 var total_page = Math.ceil(total_item / 12);
                 if (pageIndex == total_page) {
                     $(".expand-products").remove();
                 }
-                if (pageIndex >= 2) {
+                if (pageIndex >= 2) {//
                     var active_index = (pageIndex - 1) * 12;
                     var active_item = $('.product_item:eq(' + active_index + ')');
                     if (active_item.length > 0) {
@@ -207,7 +201,7 @@ var _product =
                             scrollTop: offset
                         }, 500);
                     }
-                }
+                }*/
             },
             error: function (xhr, status, error) {
                 console.log("Error: " + error); // Thay đổi từ 'failure' sang 'error'

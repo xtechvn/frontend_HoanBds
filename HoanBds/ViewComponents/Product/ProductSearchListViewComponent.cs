@@ -49,7 +49,7 @@ namespace HoanBds.ViewComponents.Product
                             amount_max = 29999999999;
                             break;
                         case 4:
-                            amount_min = 30000000000;
+                            amount_min = 30000000001;
                             amount_max = long.MaxValue;
                             break;
                     }

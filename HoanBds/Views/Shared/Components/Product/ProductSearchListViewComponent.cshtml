@@ -6,10 +6,6 @@
 }
 @if (Model != null && Model.count > 0)
 {
-    <input type="hidden" class="total_items" value="@Model.count" />
-    <input type="hidden" class="total_request" value="@(Model.page_index * Model.page_size)" />
-
-    <div class="cbr-gallery row wrapper-project-1">
         @foreach (var item in Model.items)
         {
             var img_src = item.avatar;
@@ -39,12 +35,6 @@
                 </div>
             </div>
         }
-    </div>
-    <div class="text-center">
-        <a class="site-button button-seemore black expand-products">
-            <span><i class="icofont-thin-down"></i>Xem thêm</span>
-        </a>
-    </div>
 }
 else
 {
