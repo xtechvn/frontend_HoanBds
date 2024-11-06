@@ -199,7 +199,6 @@ var _product =
                         // Cuộn đến vị trí đó
                         $('html, body').animate({
                             scrollTop: offset
-                        }, 500);
                     }
                 }*/
             },
