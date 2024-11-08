@@ -138,7 +138,6 @@ $(document).ready(function () {
         var query_string = window.location.search;
         // Khởi tạo URLSearchParams để xử lý query string
         var url_params = new URLSearchParams(query_string);
-        pageIndex = url_params.get('page') == null ? 1 : url_params.get('page');
         pageIndex = pageIndex + 1;
 
         if (pageIndex != 1)
