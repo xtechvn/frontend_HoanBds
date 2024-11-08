@@ -72,10 +72,13 @@
                                 <div class="description-productdetail" style="height: 130px; overflow: hidden;">
                                     @Model.product_main.description
                                 </div>
-                                <button class="expandable-content_toggle js_expandable_content btn-viewmore">
-                                    <span class="expandable-content_toggle-icon"></span>
-                                    <span class="expandable-content_toggle-text">Xem thêm</span>
-                                </button>
+                                @if (Model.product_main.description.Length > 432)
+                                {
+                                    <button class="expandable-content_toggle js_expandable_content btn-viewmore">
+                                        <span class="expandable-content_toggle-icon"></span>
+                                        <span class="expandable-content_toggle-text">Xem thêm</span>
+                                    </button>
+                                }
                             </div>
                         </div>
                     </div>
