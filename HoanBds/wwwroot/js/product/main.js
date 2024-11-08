@@ -138,25 +138,8 @@ $(document).ready(function () {
         var query_string = window.location.search;
         // Khởi tạo URLSearchParams để xử lý query string
         var url_params = new URLSearchParams(query_string);
-        // Lấy giá trị của tham số 'page'
-        var pageIndex = url_params.get('page') == null ? 1 : url_params.get('page');
-
-
-        const existingPage = newUrl.searchParams.get('page');
-
-        if (existingPage) {
-            // Nếu đã tồn tại, cập nhật giá trị
-            newUrl.searchParams.set('page', parseInt(pageIndex) + 1);
-        } else {
-            // Nếu chưa tồn tại, thêm mới
-            newUrl.searchParams.append('page', parseInt(pageIndex) + 1);
-        }
-        // Chuyển hướng đến URL mới
-        history.pushState(null, '', newUrl.toString());
-        newUrl = new URL(currentUrl);
-        query_string = window.location.search;
-        url_params = new URLSearchParams(query_string);
         pageIndex = url_params.get('page') == null ? 1 : url_params.get('page');
+        pageIndex = pageIndex + 1;
 
         if (pageIndex != 1)
         {
