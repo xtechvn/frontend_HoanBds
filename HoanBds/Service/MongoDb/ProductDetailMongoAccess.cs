@@ -95,7 +95,7 @@ namespace HoanBds.Service.MongoDb
                 return null;
             }
         }
-        public async Task<ProductListResponseModel> ListingByPriceRange(double amount_min, double amout_max, int group_product_id = -1, int page_index = 1, int page_size = 12,int? districtCode = null)
+        public async Task<ProductListResponseModel> ListingByPriceRange(double amount_min, double amout_max, int group_product_id, int page_index, int page_size = 12,int? districtCode = null)
         {
             try
             {
