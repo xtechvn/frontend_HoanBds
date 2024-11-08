@@ -134,10 +134,10 @@ $(document).ready(function () {
     });
 
     $(document.body).on('click', '.expand-products', function (e) {
-        const newUrl = new URL(currentUrl);
-        const query_string = window.location.search;
+        var newUrl = new URL(currentUrl);
+        var query_string = window.location.search;
         // Khởi tạo URLSearchParams để xử lý query string
-        const url_params = new URLSearchParams(query_string);
+        var url_params = new URLSearchParams(query_string);
         // Lấy giá trị của tham số 'page'
         var pageIndex = url_params.get('page') == null ? 1 : url_params.get('page');
 
@@ -152,7 +152,16 @@ $(document).ready(function () {
             newUrl.searchParams.append('page', parseInt(pageIndex) + 1);
         }
         // Chuyển hướng đến URL mới
-        window.location.href = newUrl.toString();
+        history.pushState(null, '', newUrl.toString());
+        newUrl = new URL(currentUrl);
+        query_string = window.location.search;
+        url_params = new URLSearchParams(query_string);
+        pageIndex = url_params.get('page') == null ? 1 : url_params.get('page');
+
+        if (pageIndex != 1)
+        {
+            _product.LoadProduct(id, pricecode, pageIndex, districtcode, typecode, pageSize);
+        }
     });
 })
 
@@ -185,22 +194,22 @@ var _product =
             data: { _group_product_id: group_product_id, pricecode: pricecode, _page_index: pageIndex, districtcode: districtcode, typecode: typecode, _page_size: take, view_name: "~/Views/Shared/Components/Product/ProductSearchListViewComponent.cshtml" },
             success: function (data) {
                 $("#list-product-search").append(data);
-                /*var total_item = $(".total_items").val();
+                var total_item = $(".total_items").val();
                 var total_page = Math.ceil(total_item / 12);
                 if (pageIndex == total_page) {
                     $(".expand-products").remove();
                 }
-                if (pageIndex >= 2) {//
-                    var active_index = (pageIndex - 1) * 12;
-                    var active_item = $('.product_item:eq(' + active_index + ')');
-                    if (active_item.length > 0) {
-                        const offset = active_item.offset().top;
+                //if (pageIndex >= 2) {
+                //    var active_index = (pageIndex - 1) * 12;
+                //    var active_item = $('.product_item:eq(' + active_index + ')');
+                //    if (active_item.length > 0) {
+                //        const offset = active_item.offset().top;
 
-                        // Cuộn đến vị trí đó
-                        $('html, body').animate({
-                            scrollTop: offset
-                    }
-                }*/
+                //         Cuộn đến vị trí đó
+                //        $('html, body').animate({
+                //            scrollTop: offset
+                //    }
+                //}
             },
             error: function (xhr, status, error) {
                 console.log("Error: " + error); // Thay đổi từ 'failure' sang 'error'
