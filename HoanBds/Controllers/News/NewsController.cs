@@ -126,6 +126,38 @@ namespace HoanBds.Controllers.News
             }
         }
 
+        [Route("news/home/get-article-list")]
+        [HttpPost]
+        public async Task<IActionResult> getArticleListByCategoryId(int category_id, string view_name, int page)
+        {
+            try
+            {
+                // Tính phân trang load tin
+                int page_size = Convert.ToInt32(configuration["blognews:page_size"]);
+                page = page == 0 ? 1 : page;
+                int skip = (page - 1) * page_size;
+                if (page == 1) 
+                {
+                    skip = 3;
+                }
+
+                var model = new CategoryConfigModel
+                {
+                    category_id = category_id,
+                    view_name = view_name,
+                    skip = skip,
+                    take = page_size
+                };
+                return ViewComponent("ArticleList", model);
+            }
+            catch (Exception ex)
+            {
+                // Ghi log lỗi nếu cần
+                //_logger.LogError(ex, "Error loading header component");
+                return StatusCode(500); // Trả về lỗi 500 nếu có lỗi
+            }
+        }
+
         [HttpPost("get-most-viewed-article.json")]
         public async Task<ActionResult> GetMostViewedArticle(int category_id, string view_name, int page) 
         {

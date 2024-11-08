@@ -3,10 +3,10 @@
     var category_id = -1;
     const page = 1;
     // Load tin trên trang chủ 
-    news.bin_news_home(category_id, page);
+    _news_home.bin_news_home(category_id, page);
 })
 
-var news = {
+var _news_home = {
     bin_news_home: function (category_id, page) {
 
         $.ajax({

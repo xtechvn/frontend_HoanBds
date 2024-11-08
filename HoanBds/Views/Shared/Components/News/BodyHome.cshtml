@@ -1,0 +1,40 @@
+﻿@using HoanBds.ViewModels;
+@using HoanBds.Utilities;
+@model ArticleViewModel
+
+@foreach (var item in Model.obj_article_list)
+{
+    string link = @Html.GetStaticUrlNews(item.title, item.id);
+    <div class="masonry-item">
+        <div class="blog-post">
+            <div class="wt-post-media wt-img-effect zoom-slow">
+                <a href="@link" title="">
+                    <img src="@item.image_169" alt="@item.title">
+                </a>
+            </div>
+            <div class="wt-post-info p-t30 text-black">
+
+                <div class="wt-post-meta ">
+                    <ul>
+                        <li class="post-date">
+                            <i class="icofont-clock-time" style="color:#919191"></i><strong style="color:#919191">@item.publish_date.ToString("dd/MM/yyyy")</strong>
+                        </li>
+                    </ul>
+                </div>
+                <div class="wt-post-title">
+                    <h3 class="post-title">
+                        <a href="@link" title="">@item.title</a>
+                    </h3>
+                </div>
+                <div class="wt-post-text">
+                    <p>
+                        @item.lead
+                    </p>
+                </div>
+                <a href="@link" class="site-button black"><span>Đọc thêm</span><em></em></a>
+            </div>
+        </div>
+    </div>
+}
+
+
