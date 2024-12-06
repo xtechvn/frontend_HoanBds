@@ -2,8 +2,8 @@
 {
     Type: [
         { id: 58, path: 'nha-pho', name : 'Nhà phố'},
-        { id: 60, path: 'dat' , name : 'Đất'},
-        { id: 59, path: 'ccmn', name : 'Chung cư mini' },
+        { id: 69, path: 'dat' , name : 'Đất'},
+        { id: 57, path: 'ccmn', name : 'Chung cư mini' },
     ],
 }
 
