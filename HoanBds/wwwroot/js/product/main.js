@@ -157,12 +157,12 @@ var _product =
         {
             $("#product_filter").append(filter_html.price);
         }
-        else if (id == 57) // CCMN
+        else if (id == 59) // CCMN
         {
             $("#product_filter").append(filter_html.price);
             $("#product_filter").append(filter_html.district);
         }
-        else if (id == 59)
+        else if (id == 60)
         {
             $("#product_filter").append(filter_html.type);
         }
